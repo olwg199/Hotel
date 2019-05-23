@@ -2,7 +2,7 @@
 
 namespace Hotel.DAL.Entities
 {
-    class ApplicationRole : IdentityRole
+    public class ApplicationRole : IdentityRole
     {
     }
 }

@@ -1,15 +1,10 @@
-﻿using Ninject.Modules;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Hotel.DAL.Interfaces;
-using UserStore.DAL.Repositories;
+﻿using Hotel.BLL.Interfaces;
+using Hotel.DAL.EF;
+using Ninject.Modules;
 
 namespace Hotel.BLL.Infrastructure
 {
-    class ServiceModule : NinjectModule
+    public class ServiceModule : NinjectModule
     {
         private string _connectionString;
 
@@ -20,6 +15,7 @@ namespace Hotel.BLL.Infrastructure
 
         public override void Load()
         {
+            Bind<HotelDbContext>().ToSelf().WithConstructorArgument(_connectionString);
         }
     }
 }

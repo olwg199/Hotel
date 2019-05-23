@@ -2,8 +2,5 @@
 
 namespace Hotel.DAL.Entities
 {
-    public class ApplicationUser : IdentityUser
-    {
-        public virtual ClientProfile ClientProfile { get; set; }
-    }
+    public class ApplicationUser : IdentityUser { }
 }

@@ -9,10 +9,9 @@ using System.Threading.Tasks;
 
 namespace Hotel.DAL.EF
 {
-    class HotelDbContext : IdentityDbContext<ApplicationUser>
+    public class HotelDbContext : IdentityDbContext<ApplicationUser>
     {
         public HotelDbContext(string connectionString) : base(connectionString) { }
-
         
     }
 }
