@@ -12,37 +12,50 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
+using System.Data.Entity.Validation;
 
 namespace Hotel.BLL.Services
 {
     public class UserService : IUserService
     {
         private ApplicationUserManager _userManager;
+        private IMapper _mapper;
 
         public UserService() { }
 
-        public UserService(ApplicationUserManager userManager)
+        public UserService(ApplicationUserManager userManager, IMapper mapper)
         {
             _userManager = userManager;
+            _mapper = mapper;
         }
 
-        public async Task<OperationDetails> Create(UserDTO userDto)
+        public async Task<OperationDetails> Registration(UserDTO userDto)
         {
             ApplicationUser user = await _userManager.FindAsync(userDto.UserName, userDto.Password);
-
             if (user == null)
             {
-                Mapper.Initialize(cfg => cfg.CreateMap<UserDTO, ApplicationUser>());
-                user = Mapper.Map<UserDTO, ApplicationUser>(userDto);
+                user = _mapper.Map<UserDTO, ApplicationUser>(userDto);
 
-                var result = await _userManager.CreateAsync(user);
-
-                if(result.Errors.Count() != 0)
+                try
                 {
-                    return new OperationDetails(false, result.Errors.FirstOrDefault(), "");
+                    var result = await _userManager.CreateAsync(user, userDto.Password);
+
+                    if (result.Errors.Count() != 0)
+                    {
+                        return new OperationDetails(false, result.Errors.FirstOrDefault(), "");
+                    }
+                }
+                catch(DbEntityValidationException e)
+                {
+
+                }
+                catch (Exception ex)
+                {
+
                 }
 
-                await _userManager.AddToRoleAsync(user.Id, userDto.Role);
+
+                //await _userManager.AddToRoleAsync(user.Id, userDto.Role);
 
                 return new OperationDetails(true, "Регистрация успешно пройдена", "");
             }
@@ -52,7 +65,7 @@ namespace Hotel.BLL.Services
             }
         }
 
-        public async Task<ClaimsIdentity> Authenticate(string userName, string password)
+        public async Task<ClaimsIdentity> Login(string userName, string password)
         {
             ClaimsIdentity claim = null;
 

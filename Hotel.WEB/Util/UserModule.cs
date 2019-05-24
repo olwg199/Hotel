@@ -1,5 +1,7 @@
-﻿using Hotel.BLL.Interfaces;
+﻿using AutoMapper;
+using Hotel.BLL.Interfaces;
 using Hotel.BLL.Services;
+using Hotel.WEB.App_Start;
 using Ninject.Modules;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,7 @@ namespace Hotel.WEB.Util
         public override void Load()
         {
             Bind<IUserService>().To<UserService>();
+            Bind<IMapper>().ToConstant(AutoMapperConfig.InitializeAutoMapper().CreateMapper());
         }
     }
 }
