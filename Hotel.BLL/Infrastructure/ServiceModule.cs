@@ -11,19 +11,12 @@ namespace Hotel.BLL.Infrastructure
 {
     public class ServiceModule : NinjectModule
     {
-        private string _connectionString;
-
-        public ServiceModule(string connectionString)
-        {
-            _connectionString = connectionString;
-        }
-
         public override void Load()
         {
             Bind<ApplicationUserManager>().ToSelf();
             Bind<IUserStore<ApplicationUser>>().To<UserStore<ApplicationUser>>();
-            Bind<DbContext>().To<HotelDbContext>().WithConstructorArgument(_connectionString);
-            Bind<HotelDbContext>().ToSelf().WithConstructorArgument(_connectionString);
+            Bind<DbContext>().To<HotelDbContext>();
+            Bind<HotelDbContext>().ToSelf();
         }
     }
 }

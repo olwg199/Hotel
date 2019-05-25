@@ -55,6 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EF\HotelDbContext.cs" />
+    <Compile Include="Entities\Convenience.cs" />
+    <Compile Include="Entities\Discount.cs" />
+    <Compile Include="Entities\Reservation.cs" />
+    <Compile Include="Entities\Room.cs" />
+    <Compile Include="Entities\RoomType.cs" />
+    <Compile Include="Entities\Status.cs" />
     <Compile Include="Identity\Entities\ApplicationRole.cs" />
     <Compile Include="Identity\Entities\ApplicationUser.cs" />
     <Compile Include="Identity\ApplicationRoleManager.cs" />
@@ -66,7 +72,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Repositories\" />
   </ItemGroup>

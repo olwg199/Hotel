@@ -34,24 +34,12 @@ namespace Hotel.BLL.Services
                 user = _mapper.Map<UserDTO, ApplicationUser>(userDto);
                 user.Id = Guid.NewGuid().ToString();
 
-                try
+                var result = await _userManager.CreateAsync(user, userDto.Password);
+
+                if (result.Errors.Count() != 0)
                 {
-                    var result = await _userManager.CreateAsync(user, userDto.Password);
-
-                    if (result.Errors.Count() != 0)
-                    {
-                        return new OperationDetails(false, result.Errors.FirstOrDefault(), "");
-                    }
+                    return new OperationDetails(false, result.Errors.FirstOrDefault(), "");
                 }
-                catch(DbEntityValidationException e)
-                {
-
-                }
-                catch (Exception ex)
-                {
-
-                }
-
 
                 //await _userManager.AddToRoleAsync(user.Id, userDto.Role);
 

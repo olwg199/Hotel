@@ -18,7 +18,7 @@ namespace Hotel.WEB
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             var userModule = new UserModule();
-            var serviceModule = new ServiceModule("HotelDbContext");
+            var serviceModule = new ServiceModule();
             var kernel = new StandardKernel(userModule, serviceModule);
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
 
