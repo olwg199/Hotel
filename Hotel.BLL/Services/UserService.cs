@@ -1,18 +1,15 @@
-﻿using Hotel.BLL.DTO;
+﻿using AutoMapper;
+using Hotel.BLL.DTO;
 using Hotel.BLL.Infrastructure;
 using Hotel.BLL.Interfaces;
-using Hotel.DAL.EF;
-using Hotel.DAL.Entities;
 using Hotel.DAL.Identity;
+using Hotel.DAL.Identity.Entities;
+using Microsoft.AspNet.Identity;
 using System;
-using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
-using AutoMapper;
-using Microsoft.AspNet.Identity;
-using System.Data.Entity.Validation;
 
 namespace Hotel.BLL.Services
 {
@@ -35,6 +32,7 @@ namespace Hotel.BLL.Services
             if (user == null)
             {
                 user = _mapper.Map<UserDTO, ApplicationUser>(userDto);
+                user.Id = Guid.NewGuid().ToString();
 
                 try
                 {

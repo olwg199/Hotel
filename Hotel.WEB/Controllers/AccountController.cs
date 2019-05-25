@@ -91,6 +91,14 @@ namespace Hotel.WEB.Controllers
 
             if (details.Succedeed)
             {
+                var claim = await _userService.Login(model.UserName, model.Password);
+
+                AuthenticationManager.SignOut();
+                AuthenticationManager.SignIn(new AuthenticationProperties
+                {
+                    IsPersistent = true
+                }, claim);
+
                 return RedirectToAction("Index", "Home");
             }
             else

@@ -12,8 +12,7 @@ namespace Hotel.WEB.Util
     {
         public WebMappingProfile()
         {
-            CreateMap<Registration, UserDTO>()
-                .ForMember("UserName", opt => opt.MapFrom(c => c.Login));
+            CreateMap<Registration, UserDTO>();
         }
     }
 }

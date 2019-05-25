@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Hotel.BLL.DTO;
-using Hotel.DAL.Entities;
+using Hotel.DAL.Identity.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +13,7 @@ namespace Hotel.BLL.Infrastructure
     {
         public BLLMappingProfile()
         {
-            CreateMap<UserDTO, ApplicationUser>()
-                .ForMember("Id", opt => Guid.NewGuid().ToString());
+            CreateMap<UserDTO, ApplicationUser>();
         }
     }
 }

@@ -8,16 +8,16 @@
 
         <ul class="nav navbar-nav">
             <li>
-                @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "btn" })
+                @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "btn btn-outline-dark" })
             </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-outline-info border-0 rounded-0">Log off</a></li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-outline-danger">Log off</a></li>
         </ul>
     }
 }
 else
 {
     <ul class="nav navbar-nav">
-        <li>@Html.ActionLink("Register", "Registration", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class="btn"})</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn" })</li>
+        <li>@Html.ActionLink("Register", "Registration", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class= "btn btn-outline-warning" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-outline-danger" })</li>
     </ul>
 }

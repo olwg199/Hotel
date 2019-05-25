@@ -25,10 +25,6 @@ namespace Hotel.WEB.Models.Account
 
         [Required(ErrorMessage = "Поле логина обязательно для заполнения")]
         [Display(Name = "Логин")]
-        public string Login { get; set; }
-
-        [Required(ErrorMessage = "Поле имени обязательно для заполнения")]
-        [Display(Name = "Имя")]
-        public string Name { get; set; }
+        public string UserName { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Hotel.BLL.Interfaces;
 using Hotel.DAL.EF;
-using Hotel.DAL.Entities;
+using Hotel.DAL.Identity.Entities;
 using Hotel.DAL.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
