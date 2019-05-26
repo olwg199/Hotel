@@ -12,7 +12,9 @@ namespace Hotel.DAL.EF
 {
     public class HotelDbContext : IdentityDbContext<ApplicationUser>
     {
-        public HotelDbContext() : base("HotelDbContext") { }
+        public HotelDbContext() { }
+
+        public HotelDbContext(string connectionString) : base(connectionString) { }
 
         public DbSet<Convenience> Conveniences{ get; set; }
 
