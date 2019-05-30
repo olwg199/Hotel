@@ -70,6 +70,7 @@
     <Compile Include="Repositories\ConvenienceRepository.cs" />
     <Compile Include="Repositories\DiscountRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
+    <Compile Include="Repositories\StatusRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

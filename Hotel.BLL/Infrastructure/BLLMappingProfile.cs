@@ -25,6 +25,9 @@ namespace Hotel.BLL.Infrastructure
             CreateMap<Room, RoomDTO>()
                 .ForMember(dest => dest.RoomTypeId, opt => opt.MapFrom(r => r.RoomType.Id));
             CreateMap<RoomDTO, Room>();
+
+            CreateMap<Status, StatusDTO>();
+            CreateMap<StatusDTO, Status>();
         }
     }
 }
