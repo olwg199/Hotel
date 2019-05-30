@@ -14,7 +14,10 @@ namespace Hotel.DAL.EF
     {
         public HotelDbContext() { }
 
-        public HotelDbContext(string connectionString) : base(connectionString) { }
+        public HotelDbContext(string connectionString) : base(connectionString)
+        {
+            Database.SetInitializer<HotelDbContext>(new HotelDbInitializer());
+        }
 
         public DbSet<Convenience> Conveniences{ get; set; }
 
@@ -28,5 +31,23 @@ namespace Hotel.DAL.EF
 
         public DbSet<Status> Statuses { get; set; }
 
+    }
+
+    internal class HotelDbInitializer : CreateDatabaseIfNotExists<HotelDbContext>
+    {
+        protected override void Seed(HotelDbContext context)
+        {
+            Convenience conv1 = new Convenience { Name = "Большая кровать" };
+            Convenience conv2 = new Convenience { Name = "Мини-бар" };
+            Convenience conv3 = new Convenience { Name = "Джакузи" };
+            Convenience conv4 = new Convenience { Name = "Домашний кинотеатр" };
+            Convenience conv5 = new Convenience { Name = "Бассейн" };
+
+            context.Conveniences.AddRange(new List<Convenience> { conv1, conv2, conv3, conv4, conv5 });
+
+            context.SaveChanges();
+
+            base.Seed(context);
+        }
     }
 }

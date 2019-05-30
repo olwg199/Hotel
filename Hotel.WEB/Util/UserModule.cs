@@ -15,6 +15,7 @@ namespace Hotel.WEB.Util
         public override void Load()
         {
             Bind<IUserService>().To<UserService>();
+            Bind<IConvenienceService>().To<ConvenienceService>();
             Bind<IMapper>().ToConstant(AutoMapperConfig.InitializeAutoMapper().CreateMapper());
         }
     }
