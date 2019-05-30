@@ -24,7 +24,7 @@ namespace Hotel.DAL.Repositories
 
         public IEnumerable<Room> Find(Func<Room, bool> predicate)
         {
-            return _context.Rooms.Where(predicate);
+            return _context.Rooms.Where(predicate).ToList();
         }
 
         public IEnumerable<Room> GetAll()
@@ -35,7 +35,6 @@ namespace Hotel.DAL.Repositories
         public void Create(Room item)
         {
             _context.Rooms.Add(item);
-
             _context.SaveChanges();
         }
 
@@ -62,6 +61,7 @@ namespace Hotel.DAL.Repositories
             }
 
             _context.Rooms.Remove(room);
+            _context.SaveChanges();
         }
     }
 }
