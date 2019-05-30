@@ -6,7 +6,7 @@ namespace Hotel.BLL.Interfaces
 {
     public interface IConvenienceService
     {
-        Convenience Get(int id);
+        ConvenienceDTO Get(int id);
 
         IEnumerable<ConvenienceDTO> GetAll();
 

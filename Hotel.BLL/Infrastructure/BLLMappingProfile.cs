@@ -17,8 +17,10 @@ namespace Hotel.BLL.Infrastructure
             CreateMap<UserDTO, ApplicationUser>();
 
             CreateMap<ConvenienceDTO, Convenience>();
+            CreateMap<Convenience, ConvenienceDTO>();
 
-            CreateMap<Convenience, ConvenienceDTO> ();
+            CreateMap<Discount, DiscountDTO>();
+            CreateMap<DiscountDTO, Discount>();
         }
     }
 }

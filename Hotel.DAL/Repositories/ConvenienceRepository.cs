@@ -24,34 +24,20 @@ namespace Hotel.DAL.Repositories
             return _context.Conveniences.Find(id);
         }
 
-        public IEnumerable<Convenience> GetAll()
-        {
-            return _context.Conveniences.Include(t=>t.RoomTypes).ToList();
-        }
-
         public IEnumerable<Convenience> Find(Func<Convenience, bool> predicate)
         {
             return _context.Conveniences.Where(predicate).ToList();
+        }
+
+        public IEnumerable<Convenience> GetAll()
+        {
+            return _context.Conveniences.Include(c => c.RoomTypes).ToList();
         }
 
         public void Create(Convenience item)
         {
             _context.Conveniences.Add(item);
             _context.SaveChanges();
-        }
-
-        public void Delete(int id)
-        {
-            var convenience = _context.Conveniences.Find(id);
-            if(convenience != null)
-            {
-                _context.Conveniences.Remove(convenience);
-                _context.SaveChanges();
-            }
-            else
-            {
-                throw new ArgumentException("Convenience with current Id not found");
-            }
         }
 
         public void Update(Convenience item)
@@ -65,6 +51,20 @@ namespace Hotel.DAL.Repositories
 
             _context.Entry(item).State = EntityState.Modified;
             _context.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var convenience = _context.Conveniences.Find(id);
+            if (convenience != null)
+            {
+                _context.Conveniences.Remove(convenience);
+                _context.SaveChanges();
+            }
+            else
+            {
+                throw new ArgumentException("Convenience with current Id not found");
+            }
         }
     }
 }

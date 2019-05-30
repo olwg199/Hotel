@@ -22,9 +22,9 @@ namespace Hotel.BLL.Services
             _mapper = mapper;
         }
 
-        public Convenience Get(int id)
+        public ConvenienceDTO Get(int id)
         {
-            return _repository.Get(id);
+            return _mapper.Map<Convenience, ConvenienceDTO>(_repository.Get(id));
         }
 
         public IEnumerable<ConvenienceDTO> GetAll()
