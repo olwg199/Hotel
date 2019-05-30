@@ -28,6 +28,7 @@ namespace Hotel.BLL.Infrastructure
             Bind<HotelDbContext>().ToSelf().WithConstructorArgument(_connectionString);
 
             Bind<IRepository<Convenience>>().To<ConvenienceRepository>();
+            Bind<IRepository<Discount>>().To<DiscountRepository>();
         }
     }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Hotel.DAL.Repositories
 {
-    class DiscountRepository : IRepository<Discount>
+    public class DiscountRepository : IRepository<Discount>
     {
         private HotelDbContext _context;
 
