@@ -7,6 +7,8 @@ namespace Hotel.DAL.Entities
     {
         public int Id { get; set; }
 
+        public string Name { get; set; }
+
         public int DiscountValue { get; set; }
 
         public DateTime StartDate { get; set; }
