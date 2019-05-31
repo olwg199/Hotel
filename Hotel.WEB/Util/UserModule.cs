@@ -16,6 +16,8 @@ namespace Hotel.WEB.Util
         {
             Bind<IUserService>().To<UserService>();
             Bind<IConvenienceService>().To<ConvenienceService>();
+            Bind<IRoomTypeService>().To<RoomTypeService>();
+            Bind<IRoomService>().To<RoomService>();
             Bind<IMapper>().ToConstant(AutoMapperConfig.InitializeAutoMapper().CreateMapper());
         }
     }

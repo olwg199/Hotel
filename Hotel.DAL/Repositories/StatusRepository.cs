@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Hotel.DAL.Repositories
 {
-    class StatusRepository : IRepository<Status>
+    public class StatusRepository : IRepository<Status>
     {
         private HotelDbContext _context;
 
