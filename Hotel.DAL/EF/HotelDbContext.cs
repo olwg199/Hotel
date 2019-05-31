@@ -44,8 +44,36 @@ namespace Hotel.DAL.EF
             Convenience conv5 = new Convenience { Name = "Бассейн" };
 
             context.Conveniences.AddRange(new List<Convenience> { conv1, conv2, conv3, conv4, conv5 });
-
             context.SaveChanges();
+
+            RoomType type = new RoomType
+            {
+                Name = "Двуспальный стандарт",
+                BedsCount = 2,
+                Description = "Отличный номер",
+                Price = 10000,
+                Conveniences = new List<Convenience> { conv1, conv2, conv3 }
+            };
+
+            RoomType type1 = new RoomType
+            {
+                Name = "Односпальный стандарт",
+                BedsCount = 1,
+                Description = "Отличный номер",
+                Price = 5000,
+                Conveniences = new List<Convenience> { conv4, conv5, conv3 }
+            };
+
+            RoomType type2 = new RoomType
+            {
+                Name = "Трехспальный Люкс",
+                BedsCount = 3,
+                Description = "Отличный номер",
+                Price = 15000,
+                Conveniences = new List<Convenience> { conv1, conv2, conv3, conv4 }
+            };
+
+            context.RoomTypes.AddRange(new List<RoomType> { type, type1, type2 });
 
             base.Seed(context);
         }
