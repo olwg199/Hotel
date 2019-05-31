@@ -16,6 +16,12 @@ namespace Hotel.BLL.Services
         private IRepository<Status> _repository;
         private IMapper _mapper;
 
+        public StatusService(IRepository<Status> repository, IMapper mapper)
+        {
+            _repository = repository;
+            _mapper = mapper;
+        }
+
         public StatusDTO Get(int id)
         {
             return _mapper.Map<Status, StatusDTO>(_repository.Get(id));
