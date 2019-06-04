@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace Hotel.WEB.Areas.Admin.Controllers
 {
-    public class DashboardController : Controller
+    public class ReservationController : Controller
     {
-        // GET: Admin/Dashboard
-        public ActionResult Index()
+        // GET: Admin/Reservation
+        public ActionResult List()
         {
             return View();
         }

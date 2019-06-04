@@ -12,8 +12,6 @@ namespace Hotel.DAL.EF
 {
     public class HotelDbContext : IdentityDbContext<ApplicationUser>
     {
-        public HotelDbContext() { }
-
         public HotelDbContext(string connectionString) : base(connectionString)
         {
             Database.SetInitializer<HotelDbContext>(new HotelDbInitializer());

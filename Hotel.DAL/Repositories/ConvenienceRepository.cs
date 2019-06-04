@@ -4,6 +4,7 @@ using Hotel.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,7 +50,7 @@ namespace Hotel.DAL.Repositories
                 throw new ArgumentException("Convenience with current Id not found");
             }
 
-            _context.Entry(item).State = EntityState.Modified;
+            _context.Set<Convenience>().AddOrUpdate(item);
             _context.SaveChanges();
         }
 

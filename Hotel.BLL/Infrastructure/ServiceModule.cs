@@ -9,6 +9,7 @@ using System.Data.Entity;
 using Hotel.DAL.Entities;
 using Hotel.DAL.Interfaces;
 using Hotel.DAL.Repositories;
+using Ninject;
 
 namespace Hotel.BLL.Infrastructure
 {
@@ -23,9 +24,9 @@ namespace Hotel.BLL.Infrastructure
 
         public override void Load()
         {
-            Bind<ApplicationUserManager>().ToSelf();
-            Bind<IUserStore<ApplicationUser>>().To<UserStore<ApplicationUser>>();
             Bind<HotelDbContext>().ToSelf().WithConstructorArgument(_connectionString);
+            Bind<IUserStore<ApplicationUser>>().To<UserStore<ApplicationUser>>().WithConstructorArgument("context", Kernel.Get<HotelDbContext>());
+            Bind<ApplicationUserManager>().ToSelf();
 
             Bind<IRepository<Convenience>>().To<ConvenienceRepository>();
             Bind<IRepository<Discount>>().To<DiscountRepository>();
