@@ -37,8 +37,9 @@ namespace Hotel.DAL.Repositories
 
         public void Create(RoomType item)
         {
+            var ids = item.Conveniences.Select(i => i.Id).ToList();
             item.Conveniences = _context.Conveniences
-                .Where(t => item.Conveniences.Select(i => i.Id).Contains(t.Id))
+                .Where(t => ids.Contains(t.Id))
                 .ToList();
 
             _context.RoomTypes.Add(item);

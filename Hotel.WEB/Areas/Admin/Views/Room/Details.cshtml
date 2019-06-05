@@ -1,4 +1,4 @@
-﻿@model Hotel.WEB.Areas.Admin.Models.RoomDetailsVM
+﻿@model Hotel.WEB.Areas.Admin.Models.RoomDetails
 
 @{
     ViewBag.Title = "Details";
@@ -9,7 +9,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>RoomDetailsVM</h4>
+        <h4>RoomDetails</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Hotel.WEB.Areas.Admin.Models
 {
-    public class RoomDetailsVM
+    public class RoomDetails
     {
         public int Id { get; set; }
 

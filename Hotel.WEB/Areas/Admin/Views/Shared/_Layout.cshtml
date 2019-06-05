@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Dashboard</title>
+    @Styles.Render("~/Content/css")
     @Styles.Render("~/Areas/Admin/Content/css")
 </head>
 <body>
@@ -17,6 +18,7 @@
                 </a>
             </div>
             <div class="list-group list-group-flush">
+                <a href="@Url.Action("List", "RoomType", new { area = "Admin"})" class="list-group-item list-group-item-action bg-light">Room types</a>
                 <a href="@Url.Action("List", "Room", new { area = "Admin"})" class="list-group-item list-group-item-action bg-light">Rooms</a>
                 <a href="@Url.Action("List", "Convenience", new { area = "Admin"})" class="list-group-item list-group-item-action bg-light">Conveniences</a>
             </div>
@@ -49,7 +51,10 @@
         </div>
 
     </div>
-
+    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/popper")
+    @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Areas/Admin/Content/js")
     @RenderSection("scripts", required: false)
 </body>

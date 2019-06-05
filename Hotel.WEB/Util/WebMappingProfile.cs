@@ -15,8 +15,17 @@ namespace Hotel.WEB.Util
         {
             CreateMap<Registration, UserDTO>();
 
-            CreateMap<RoomDTO, RoomDetailsVM>();
-            CreateMap<RoomDetailsVM, RoomDTO>();
+            CreateMap<RoomDTO, RoomDetails>();
+            CreateMap<RoomDetails, RoomDTO>();
+
+            CreateMap<RoomTypeDTO, RoomTypeDetails>()
+                .ForMember(
+                    dest => dest.SelectedConveniences, 
+                    opt => opt.MapFrom(t => t.Conveniences.Select(x => x.Id).ToArray()));
+            CreateMap<RoomTypeDetails, RoomTypeDTO>()
+                .ForMember(
+                    dest => dest.Conveniences,
+                    opt => opt.MapFrom(t => t.SelectedConveniences.Select(conv => new ConvenienceDTO{Id = conv})));
         }
     }
 }
