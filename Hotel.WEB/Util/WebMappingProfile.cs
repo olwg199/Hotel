@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Hotel.WEB.Areas.Admin.Models;
 
 namespace Hotel.WEB.Util
 {
@@ -13,6 +14,9 @@ namespace Hotel.WEB.Util
         public WebMappingProfile()
         {
             CreateMap<Registration, UserDTO>();
+
+            CreateMap<RoomDTO, RoomDetailsVM>();
+            CreateMap<RoomDetailsVM, RoomDTO>();
         }
     }
 }

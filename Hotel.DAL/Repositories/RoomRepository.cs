@@ -4,6 +4,7 @@ using Hotel.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 
 namespace Hotel.DAL.Repositories
@@ -19,7 +20,7 @@ namespace Hotel.DAL.Repositories
 
         public Room Get(int id)
         {
-            return _context.Rooms.Find(id);
+            return _context.Rooms.Include(r => r.RoomType).FirstOrDefault(r => r.Id == id);
         }
 
         public IEnumerable<Room> Find(Func<Room, bool> predicate)
@@ -29,7 +30,7 @@ namespace Hotel.DAL.Repositories
 
         public IEnumerable<Room> GetAll()
         {
-            return _context.Rooms.ToList();
+            return _context.Rooms.Include(r=>r.RoomType).ToList();
         }
 
         public void Create(Room item)
@@ -47,7 +48,7 @@ namespace Hotel.DAL.Repositories
                 throw new ArgumentException("Room with current Id not found");
             }
 
-            _context.Entry(item).State = EntityState.Modified;
+            _context.Set<Room>().AddOrUpdate(item);
             _context.SaveChanges();
         }
 

@@ -23,7 +23,8 @@ namespace Hotel.BLL.Infrastructure
             CreateMap<DiscountDTO, Discount>();
 
             CreateMap<Room, RoomDTO>()
-                .ForMember(dest => dest.RoomTypeId, opt => opt.MapFrom(r => r.RoomType.Id));
+                .ForMember(dest => dest.RoomTypeId, opt => opt.MapFrom(r => r.RoomType.Id))
+                .ForMember(dest => dest.RoomTypeName, opt => opt.MapFrom(r => r.RoomType.Name));
             CreateMap<RoomDTO, Room>();
 
             CreateMap<RoomType, RoomTypeDTO>();
