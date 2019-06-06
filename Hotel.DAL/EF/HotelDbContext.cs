@@ -46,8 +46,7 @@ namespace Hotel.DAL.EF
 
             RoomType type = new RoomType
             {
-                Name = "Двуспальный стандарт",
-                BedsCount = 2,
+                Name = "Премиум",
                 Description = "Отличный номер",
                 Price = 10000,
                 Conveniences = new List<Convenience> { conv1, conv2, conv3 }
@@ -55,8 +54,7 @@ namespace Hotel.DAL.EF
 
             RoomType type1 = new RoomType
             {
-                Name = "Односпальный стандарт",
-                BedsCount = 1,
+                Name = "Cтандарт",
                 Description = "Отличный номер",
                 Price = 5000,
                 Conveniences = new List<Convenience> { conv4, conv5, conv3 }
@@ -64,8 +62,7 @@ namespace Hotel.DAL.EF
 
             RoomType type2 = new RoomType
             {
-                Name = "Трехспальный Люкс",
-                BedsCount = 3,
+                Name = "Люкс",
                 Description = "Отличный номер",
                 Price = 15000,
                 Conveniences = new List<Convenience> { conv1, conv2, conv3, conv4 }

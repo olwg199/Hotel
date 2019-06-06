@@ -10,8 +10,6 @@ namespace Hotel.DAL.Entities
 
         public string Description { get; set; }
 
-        public int BedsCount { get; set; }
-
         public long Price { get; set; }
 
         public virtual ICollection<Convenience> Conveniences { get; set; }

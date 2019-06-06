@@ -69,6 +69,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ConvenienceRepository.cs" />
     <Compile Include="Repositories\DiscountRepository.cs" />
+    <Compile Include="Repositories\ReservationRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
     <Compile Include="Repositories\RoomTypeRepository.cs" />
     <Compile Include="Repositories\StatusRepository.cs" />

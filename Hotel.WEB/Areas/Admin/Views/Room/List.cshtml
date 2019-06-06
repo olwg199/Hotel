@@ -15,6 +15,9 @@
             @Html.DisplayNameFor(model => model.RoomNumber)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.BedsCount)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.RoomTypeName)
         </th>
         <th></th>
@@ -26,11 +29,14 @@
             @Html.DisplayFor(modelItem => item.RoomNumber)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.BedsCount)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.RoomTypeName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
         </td>
     </tr>
 }

@@ -8,6 +8,8 @@ namespace Hotel.DAL.Entities
 
         public int RoomNumber { get; set; }
 
+        public int BedsCount { get; set; }
+
         public int? RoomTypeId { get; set; }
 
         public RoomType RoomType { get; set; }

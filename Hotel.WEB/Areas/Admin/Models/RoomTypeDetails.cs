@@ -14,8 +14,6 @@ namespace Hotel.WEB.Areas.Admin.Models
 
         public string Description { get; set; }
 
-        public int BedsCount { get; set; }
-
         public long Price { get; set; }
 
         public int[] SelectedConveniences { get; set; }

@@ -14,6 +14,8 @@ namespace Hotel.WEB.Areas.Admin.Models
         
         public int RoomTypeId { get; set; }
 
+        public int BedsCount { get; set; }
+
         public IEnumerable<SelectListItem> RoomTypes { get; set; }
     }
 }

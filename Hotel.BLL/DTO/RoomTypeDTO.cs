@@ -14,8 +14,6 @@ namespace Hotel.BLL.DTO
 
         public string Description { get; set; }
 
-        public int BedsCount { get; set; }
-
         public long Price { get; set; }
 
         public ICollection<ConvenienceDTO> Conveniences { get; set; }
