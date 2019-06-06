@@ -13,11 +13,11 @@ namespace Hotel.WEB.Areas.Admin.Controllers
     public class RoomController : Controller
     {
 
-        private IRoomService _roomService;
-        private IRoomTypeService _roomTypeService;
+        private IService<RoomDTO> _roomService;
+        private IService<RoomTypeDTO> _roomTypeService;
         private IMapper _mapper;
 
-        public RoomController(IRoomService roomService, IRoomTypeService roomTypeService, IMapper mapper)
+        public RoomController(IService<RoomDTO> roomService, IService<RoomTypeDTO> roomTypeService, IMapper mapper)
         {
             _roomService = roomService;
             _roomTypeService = roomTypeService;

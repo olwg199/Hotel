@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Hotel.BLL.Services
 {
-    public class RoomTypeService : IRoomTypeService
+    public class RoomTypeService : IService<RoomTypeDTO>
     {
         private IRepository<RoomType> _repository;
         private IMapper _mapper;

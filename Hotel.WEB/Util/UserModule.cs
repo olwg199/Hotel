@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Hotel.BLL.DTO;
 
 namespace Hotel.WEB.Util
 {
@@ -15,9 +16,11 @@ namespace Hotel.WEB.Util
         public override void Load()
         {
             Bind<IUserService>().To<UserService>();
-            Bind<IConvenienceService>().To<ConvenienceService>();
-            Bind<IRoomTypeService>().To<RoomTypeService>();
-            Bind<IRoomService>().To<RoomService>();
+            Bind<IService<DiscountDTO>>().To<DiscountService>();
+            Bind<IService<ConvenienceDTO>>().To<ConvenienceService>();
+            Bind<IService<RoomDTO>>().To<RoomService>();
+            Bind<IService<RoomTypeDTO>>().To<RoomTypeService>();
+            Bind<IService<StatusDTO>>().To<StatusService>();
             Bind<IMapper>().ToConstant(AutoMapperConfig.InitializeAutoMapper().CreateMapper());
         }
     }

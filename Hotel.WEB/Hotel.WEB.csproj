@@ -340,7 +340,6 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ConvenienceController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ReservationController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoomController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoomTypeController.cs" />
     <Compile Include="Areas\Admin\Models\RoomDetails.cs" />

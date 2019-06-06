@@ -5,15 +5,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
+using Hotel.BLL.DTO;
 
 namespace Hotel.WEB.Controllers
 {
     public class HomeController : Controller
     {
-        private IRoomTypeService _service;
+        private IService<RoomTypeDTO> _service;
         private IMapper _mapper;
 
-        public HomeController(IRoomTypeService service, IMapper mapper)
+        public HomeController(IService<RoomTypeDTO> service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;

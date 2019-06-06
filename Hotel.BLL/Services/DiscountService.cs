@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Hotel.BLL.Services
 {
-    class DiscountService : IDiscountService
+    public class DiscountService : IService<DiscountDTO>
     {
         private IRepository<Discount> _repository;
         private IMapper _mapper;

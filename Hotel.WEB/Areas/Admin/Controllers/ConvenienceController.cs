@@ -11,10 +11,10 @@ namespace Hotel.WEB.Areas.Admin.Controllers
 {
     public class ConvenienceController : Controller
     {
-        private IConvenienceService _service;
+        private IService<ConvenienceDTO> _service;
         private IMapper _mapper;
 
-        public ConvenienceController(IConvenienceService service, IMapper mapper)
+        public ConvenienceController(IService<ConvenienceDTO> service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;
