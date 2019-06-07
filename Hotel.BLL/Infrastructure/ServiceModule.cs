@@ -30,6 +30,7 @@ namespace Hotel.BLL.Infrastructure
 
             Bind<IRepository<Convenience>>().To<ConvenienceRepository>();
             Bind<IRepository<Discount>>().To<DiscountRepository>();
+            Bind<IRepository<Reservation>>().To<ReservationRepository>();
             Bind<IRepository<Room>>().To<RoomRepository>();
             Bind<IRepository<RoomType>>().To<RoomTypeRepository>();
             Bind<IRepository<Status>>().To<StatusRepository>();

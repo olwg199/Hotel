@@ -19,6 +19,10 @@ namespace Hotel.DAL.Entities
 
         public ApplicationUser Manager { get; set; }
 
+        public int? RoomTypeId { get; set; }
+
+        public RoomType RoomType { get; set; }
+
         public int? RoomId { get; set; }
 
         public Room Room { get; set; }

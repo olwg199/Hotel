@@ -14,6 +14,7 @@ namespace Hotel.BLL.Infrastructure
     {
         public BLLMappingProfile()
         {
+            CreateMap<ApplicationUser, UserDTO>();
             CreateMap<UserDTO, ApplicationUser>();
 
             CreateMap<ConvenienceDTO, Convenience>();
@@ -21,6 +22,9 @@ namespace Hotel.BLL.Infrastructure
 
             CreateMap<Discount, DiscountDTO>();
             CreateMap<DiscountDTO, Discount>();
+
+            CreateMap<Reservation, ReservationDTO>();
+            CreateMap<ReservationDTO, Reservation>();
 
             CreateMap<Room, RoomDTO>()
                 .ForMember(dest => dest.RoomTypeId, opt => opt.MapFrom(r => r.RoomType.Id))

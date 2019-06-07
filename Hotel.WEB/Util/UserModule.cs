@@ -18,6 +18,7 @@ namespace Hotel.WEB.Util
             Bind<IUserService>().To<UserService>();
             Bind<IService<DiscountDTO>>().To<DiscountService>();
             Bind<IService<ConvenienceDTO>>().To<ConvenienceService>();
+            Bind<IService<ReservationDTO>>().To<ReservationService>();
             Bind<IService<RoomDTO>>().To<RoomService>();
             Bind<IService<RoomTypeDTO>>().To<RoomTypeService>();
             Bind<IService<StatusDTO>>().To<StatusService>();
