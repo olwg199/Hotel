@@ -41,17 +41,8 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-success" />
-                @Html.ActionLink("Back", "Index", "Home")
+                @Html.ActionLink("Back", "Index", "Home", new {@class="btn btn-light"})
             </div>
         </div>
     </div>
-}
-
-@section scripts
-{
-    <script>
-        $(function()  {
-            $("#datepicker").datepicker();
-        });
-    </script>
 }

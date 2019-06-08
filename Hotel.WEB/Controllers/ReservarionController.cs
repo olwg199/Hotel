@@ -37,6 +37,12 @@ namespace Hotel.WEB.Controllers
         [HttpPost]
         public ActionResult Create(CreateReservationVM model)
         {
+            if (!ModelState.IsValid)
+            {
+                model.RoomTypes = new SelectList(_roomTypeService.GetAll(), "Id", "Name");
+                return View(model);
+            }
+
             ReservationDTO reservation = _mapper.Map<ReservationDTO>(model);
             reservation.CleintId = this.HttpContext.User.Identity.GetUserId();
             _reservationService.Create(reservation);

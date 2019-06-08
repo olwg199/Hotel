@@ -37,12 +37,14 @@ namespace Hotel.DAL.Repositories
 
         public void Create(Reservation item)
         {
+            item.RoomType = _context.RoomTypes.Find(item.RoomType.Id);
             _context.Reservations.Add(item);
             _context.SaveChanges();
         }
 
         public void Update(Reservation item)
         {
+            item.RoomType = _context.RoomTypes.Find(item.RoomType.Id);
             _context.Set<Reservation>().AddOrUpdate(item);
             _context.SaveChanges();
         }
