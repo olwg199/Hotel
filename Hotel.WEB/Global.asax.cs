@@ -17,8 +17,8 @@ namespace Hotel.WEB
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            var userModule = new NinjectWebModule();
-            var serviceModule = new NinjectBllModule("HotelDbContext");
+            var userModule = new UserModule();
+            var serviceModule = new ServiceModule("HotelDbContext");
             var kernel = new StandardKernel(userModule, serviceModule);
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
 

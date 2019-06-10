@@ -70,7 +70,7 @@
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Infrastructure\BLLMappingProfile.cs" />
     <Compile Include="Infrastructure\OperationDetails.cs" />
-    <Compile Include="Infrastructure\NinjectBllModule.cs" />
+    <Compile Include="Infrastructure\ServiceModule.cs" />
     <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
