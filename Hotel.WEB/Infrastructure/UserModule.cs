@@ -12,12 +12,12 @@ namespace Hotel.WEB.Infrastructure
         public override void Load()
         {
             Bind<IUserService>().To<UserService>();
-            Bind<IService<DiscountDTO>>().To<DiscountService>();
-            Bind<IService<ConvenienceDTO>>().To<ConvenienceService>();
-            Bind<IService<ReservationDTO>>().To<ReservationService>();
-            Bind<IService<RoomDTO>>().To<RoomService>();
-            Bind<IService<RoomTypeDTO>>().To<RoomTypeService>();
-            Bind<IService<StatusDTO>>().To<StatusService>();
+            Bind<IService<DiscountDto>>().To<DiscountService>();
+            Bind<IService<ConvenienceDto>>().To<ConvenienceService>();
+            Bind<IService<ReservationDto>>().To<ReservationService>();
+            Bind<IService<RoomDto>>().To<RoomService>();
+            Bind<IService<RoomTypeDto>>().To<RoomTypeService>();
+            Bind<IService<StatusDto>>().To<StatusService>();
             Bind<IMapper>().ToConstant(AutoMapperConfig.InitializeAutoMapper().CreateMapper());
         }
     }

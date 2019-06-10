@@ -13,11 +13,11 @@ namespace Hotel.WEB.Areas.Admin.Controllers
 {
     public class RoomTypeController : Controller
     {
-        private IService<RoomTypeDTO> _roomTypeService;
-        private IService<ConvenienceDTO> _convenienceService;
+        private IService<RoomTypeDto> _roomTypeService;
+        private IService<ConvenienceDto> _convenienceService;
         private IMapper _mapper;
 
-        public RoomTypeController(IService<RoomTypeDTO> roomTypeService, IService<ConvenienceDTO> convenienceService, IMapper mapper)
+        public RoomTypeController(IService<RoomTypeDto> roomTypeService, IService<ConvenienceDto> convenienceService, IMapper mapper)
         {
             _roomTypeService = roomTypeService;
             _convenienceService = convenienceService;
@@ -53,7 +53,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
             }
 
             var name = Path.GetFileName(image.FileName);
-            RoomTypeDTO type = _mapper.Map<RoomTypeDTO>(model);
+            RoomTypeDto type = _mapper.Map<RoomTypeDto>(model);
             type.PathToImage = Server.MapPath("~/App_Data/Images/" + name);
             image.SaveAs(type.PathToImage);
 
@@ -66,7 +66,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            RoomTypeDTO type = _roomTypeService.Get(id);
+            RoomTypeDto type = _roomTypeService.Get(id);
             RoomTypeDetailsVm model = _mapper.Map<RoomTypeDetailsVm>(type);
             model.AvailableConveniences = new MultiSelectList(_convenienceService.GetAll(), "Id", "Name", type.Conveniences);
 
@@ -83,7 +83,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
                 return View(model);
             }
             
-            RoomTypeDTO type = _mapper.Map<RoomTypeDTO>(model);
+            RoomTypeDto type = _mapper.Map<RoomTypeDto>(model);
             type.PathToImage = "/Content/img/" + image.FileName;
             image.SaveAs(Server.MapPath(type.PathToImage));
 

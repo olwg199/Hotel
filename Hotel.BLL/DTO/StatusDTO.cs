@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hotel.BLL.DTO
 {
-    public class StatusDTO
+    public class StatusDto
     {
         public int Id { get; set; }
 

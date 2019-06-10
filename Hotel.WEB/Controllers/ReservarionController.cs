@@ -13,11 +13,11 @@ namespace Hotel.WEB.Controllers
 {
     public class ReservarionController : Controller
     {
-        private IService<RoomTypeDTO> _roomTypeService;
-        private IService<ReservationDTO> _reservationService;
+        private IService<RoomTypeDto> _roomTypeService;
+        private IService<ReservationDto> _reservationService;
         private IMapper _mapper;
 
-        public ReservarionController(IService<RoomTypeDTO> roomTypeService, IService<ReservationDTO> reservationService, IMapper mapper)
+        public ReservarionController(IService<RoomTypeDto> roomTypeService, IService<ReservationDto> reservationService, IMapper mapper)
         {
             _roomTypeService = roomTypeService;
             _reservationService = reservationService;
@@ -43,7 +43,7 @@ namespace Hotel.WEB.Controllers
                 return View(model);
             }
 
-            ReservationDTO reservation = _mapper.Map<ReservationDTO>(model);
+            ReservationDto reservation = _mapper.Map<ReservationDto>(model);
             reservation.ClientId = this.HttpContext.User.Identity.GetUserId();
             _reservationService.Create(reservation);
             return RedirectToAction("Index", "Home");
@@ -53,7 +53,7 @@ namespace Hotel.WEB.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            IEnumerable<ReservationDTO> reservations = _reservationService.GetAll();
+            IEnumerable<ReservationDto> reservations = _reservationService.GetAll();
             return View();
         }
     }

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Hotel.BLL.Services
 {
-    public class DiscountService : IService<DiscountDTO>
+    public class DiscountService : IService<DiscountDto>
     {
         private IRepository<Discount> _repository;
         private IMapper _mapper;
@@ -22,26 +22,26 @@ namespace Hotel.BLL.Services
             _mapper = mapper;
         }
 
-        public DiscountDTO Get(int id)
+        public DiscountDto Get(int id)
         {
-            return _mapper.Map<Discount, DiscountDTO>(_repository.Get(id));
+            return _mapper.Map<Discount, DiscountDto>(_repository.Get(id));
         }
 
-        public IEnumerable<DiscountDTO> GetAll()
+        public IEnumerable<DiscountDto> GetAll()
         {
-            return _repository.GetAll().Select(d => _mapper.Map<Discount, DiscountDTO>(d)).ToList();
+            return _repository.GetAll().Select(d => _mapper.Map<Discount, DiscountDto>(d)).ToList();
         }
 
-        public void Create(DiscountDTO item)
+        public void Create(DiscountDto item)
         {
-            Discount discount = _mapper.Map<DiscountDTO, Discount>(item);
+            Discount discount = _mapper.Map<DiscountDto, Discount>(item);
 
             _repository.Create(discount);
         }
 
-        public void Update(DiscountDTO item)
+        public void Update(DiscountDto item)
         {
-            Discount discount = _mapper.Map<DiscountDTO, Discount>(item);
+            Discount discount = _mapper.Map<DiscountDto, Discount>(item);
 
             _repository.Create(discount);
         }

@@ -14,28 +14,28 @@ namespace Hotel.BLL.Infrastructure
     {
         public BLLMappingProfile()
         {
-            CreateMap<ApplicationUser, UserDTO>();
-            CreateMap<UserDTO, ApplicationUser>();
+            CreateMap<ApplicationUser, UserDto>();
+            CreateMap<UserDto, ApplicationUser>();
 
-            CreateMap<ConvenienceDTO, Convenience>();
-            CreateMap<Convenience, ConvenienceDTO>();
+            CreateMap<ConvenienceDto, Convenience>();
+            CreateMap<Convenience, ConvenienceDto>();
 
-            CreateMap<Discount, DiscountDTO>();
-            CreateMap<DiscountDTO, Discount>();
+            CreateMap<Discount, DiscountDto>();
+            CreateMap<DiscountDto, Discount>();
 
-            CreateMap<Reservation, ReservationDTO>();
-            CreateMap<ReservationDTO, Reservation>();
+            CreateMap<Reservation, ReservationDto>();
+            CreateMap<ReservationDto, Reservation>();
 
-            CreateMap<Room, RoomDTO>()
+            CreateMap<Room, RoomDto>()
                 .ForMember(dest => dest.RoomTypeId, opt => opt.MapFrom(r => r.RoomType.Id))
                 .ForMember(dest => dest.RoomTypeName, opt => opt.MapFrom(r => r.RoomType.Name));
-            CreateMap<RoomDTO, Room>();
+            CreateMap<RoomDto, Room>();
 
-            CreateMap<RoomType, RoomTypeDTO>();
-            CreateMap<RoomTypeDTO, RoomType>();
+            CreateMap<RoomType, RoomTypeDto>();
+            CreateMap<RoomTypeDto, RoomType>();
 
-            CreateMap<Status, StatusDTO>();
-            CreateMap<StatusDTO, Status>();
+            CreateMap<Status, StatusDto>();
+            CreateMap<StatusDto, Status>();
         }
     }
 }

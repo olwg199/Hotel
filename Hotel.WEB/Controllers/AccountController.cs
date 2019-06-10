@@ -85,7 +85,7 @@ namespace Hotel.WEB.Controllers
                 return View(model);
             }
 
-            UserDTO user = _mapper.Map<RegistrationVm, UserDTO>(model);
+            UserDto user = _mapper.Map<RegistrationVm, UserDto>(model);
 
             OperationDetails details = await _userService.Registration(user);
 

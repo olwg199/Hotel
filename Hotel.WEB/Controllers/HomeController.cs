@@ -11,10 +11,10 @@ namespace Hotel.WEB.Controllers
 {
     public class HomeController : Controller
     {
-        private IService<RoomTypeDTO> _service;
+        private IService<RoomTypeDto> _service;
         private IMapper _mapper;
 
-        public HomeController(IService<RoomTypeDTO> service, IMapper mapper)
+        public HomeController(IService<RoomTypeDto> service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;

@@ -11,10 +11,10 @@ namespace Hotel.WEB.Areas.Admin.Controllers
 {
     public class ConvenienceController : Controller
     {
-        private IService<ConvenienceDTO> _service;
+        private IService<ConvenienceDto> _service;
         private IMapper _mapper;
 
-        public ConvenienceController(IService<ConvenienceDTO> service, IMapper mapper)
+        public ConvenienceController(IService<ConvenienceDto> service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;
@@ -36,7 +36,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
 
         // POST: Admin/Convenience/Create
         [HttpPost]
-        public ActionResult Create(ConvenienceDTO model)
+        public ActionResult Create(ConvenienceDto model)
         {
             if (!ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
 
         // POST: Admin/Convenience/Edit
         [HttpPost]
-        public ActionResult Edit(ConvenienceDTO model)
+        public ActionResult Edit(ConvenienceDto model)
         {
             if (!ModelState.IsValid)
             {

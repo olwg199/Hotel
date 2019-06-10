@@ -1,6 +1,6 @@
 ﻿namespace Hotel.BLL.DTO
 {
-    public class RoleDTO
+    public class RoleDto
     {
         public string Id { get; set; }
 

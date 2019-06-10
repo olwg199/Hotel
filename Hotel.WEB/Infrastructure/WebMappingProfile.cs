@@ -11,21 +11,21 @@ namespace Hotel.WEB.Infrastructure
     {
         public WebMappingProfile()
         {
-            CreateMap<RegistrationVm, UserDTO>();
+            CreateMap<RegistrationVm, UserDto>();
             
-            CreateMap<CreateReservationVm, ReservationDTO>();
+            CreateMap<CreateReservationVm, ReservationDto>();
 
-            CreateMap<RoomDTO, RoomDetailsVm>();
-            CreateMap<RoomDetailsVm, RoomDTO>();
+            CreateMap<RoomDto, RoomDetailsVm>();
+            CreateMap<RoomDetailsVm, RoomDto>();
 
-            CreateMap<RoomTypeDTO, RoomTypeDetailsVm>()
+            CreateMap<RoomTypeDto, RoomTypeDetailsVm>()
                 .ForMember(
                     dest => dest.SelectedConveniences, 
                     opt => opt.MapFrom(t => t.Conveniences.Select(x => x.Id).ToArray()));
-            CreateMap<RoomTypeDetailsVm, RoomTypeDTO>()
+            CreateMap<RoomTypeDetailsVm, RoomTypeDto>()
                 .ForMember(
                     dest => dest.Conveniences,
-                    opt => opt.MapFrom(t => t.SelectedConveniences.Select(conv => new ConvenienceDTO{Id = conv})));
+                    opt => opt.MapFrom(t => t.SelectedConveniences.Select(conv => new ConvenienceDto{Id = conv})));
         }
     }
 }

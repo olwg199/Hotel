@@ -11,7 +11,7 @@ using Hotel.DAL.Interfaces;
 
 namespace Hotel.BLL.Services
 {
-    public class ReservationService : IService<ReservationDTO>
+    public class ReservationService : IService<ReservationDto>
     {
         private IRepository<Reservation> _repository;
         private IMapper _mapper;
@@ -22,23 +22,23 @@ namespace Hotel.BLL.Services
             _mapper = mapper;
         }
 
-        public ReservationDTO Get(int id)
+        public ReservationDto Get(int id)
         {
-            return _mapper.Map<ReservationDTO>(_repository.Get(id));
+            return _mapper.Map<ReservationDto>(_repository.Get(id));
         }
 
-        public IEnumerable<ReservationDTO> GetAll()
+        public IEnumerable<ReservationDto> GetAll()
         {
-            return _repository.GetAll().Select(x => _mapper.Map<ReservationDTO>(x)).ToList();
+            return _repository.GetAll().Select(x => _mapper.Map<ReservationDto>(x)).ToList();
         }
 
-        public void Create(ReservationDTO item)
+        public void Create(ReservationDto item)
         {
             Reservation reservation = _mapper.Map<Reservation>(item);
             _repository.Create(reservation);
         }
 
-        public void Update(ReservationDTO item)
+        public void Update(ReservationDto item)
         {
             _repository.Update(_mapper.Map<Reservation>(item));
         }

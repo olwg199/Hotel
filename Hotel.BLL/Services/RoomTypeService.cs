@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Hotel.BLL.Services
 {
-    public class RoomTypeService : IService<RoomTypeDTO>
+    public class RoomTypeService : IService<RoomTypeDto>
     {
         private IRepository<RoomType> _repository;
         private IMapper _mapper;
@@ -22,28 +22,28 @@ namespace Hotel.BLL.Services
             _mapper = mapper;
         }
 
-        public RoomTypeDTO Get(int id)
+        public RoomTypeDto Get(int id)
         {
-            return _mapper.Map<RoomType, RoomTypeDTO>(_repository.Get(id));
+            return _mapper.Map<RoomType, RoomTypeDto>(_repository.Get(id));
         }
 
-        public IEnumerable<RoomTypeDTO> GetAll()
+        public IEnumerable<RoomTypeDto> GetAll()
         {
             return _repository.GetAll()
-                .Select(t => _mapper.Map<RoomType, RoomTypeDTO>(t))
+                .Select(t => _mapper.Map<RoomType, RoomTypeDto>(t))
                 .ToList();
         }
 
-        public void Create(RoomTypeDTO item)
+        public void Create(RoomTypeDto item)
         {
-            RoomType type = _mapper.Map<RoomTypeDTO, RoomType>(item);
+            RoomType type = _mapper.Map<RoomTypeDto, RoomType>(item);
 
             _repository.Create(type);
         }
 
-        public void Update(RoomTypeDTO item)
+        public void Update(RoomTypeDto item)
         {
-            RoomType type = _mapper.Map<RoomTypeDTO, RoomType>(item);
+            RoomType type = _mapper.Map<RoomTypeDto, RoomType>(item);
 
             _repository.Update(type);
         }

@@ -13,11 +13,11 @@ namespace Hotel.WEB.Areas.Admin.Controllers
     public class RoomController : Controller
     {
 
-        private readonly IService<RoomDTO> _roomService;
-        private readonly IService<RoomTypeDTO> _roomTypeService;
+        private readonly IService<RoomDto> _roomService;
+        private readonly IService<RoomTypeDto> _roomTypeService;
         private readonly IMapper _mapper;
 
-        public RoomController(IService<RoomDTO> roomService, IService<RoomTypeDTO> roomTypeService, IMapper mapper)
+        public RoomController(IService<RoomDto> roomService, IService<RoomTypeDto> roomTypeService, IMapper mapper)
         {
             _roomService = roomService;
             _roomTypeService = roomTypeService;
@@ -51,7 +51,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
                 return View("Details", model);
             }
 
-            _roomService.Create(_mapper.Map<RoomDetailsVm, RoomDTO>(model));
+            _roomService.Create(_mapper.Map<RoomDetailsVm, RoomDto>(model));
 
             return RedirectToAction("List");
         }
@@ -76,7 +76,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
                 return View("Details", model);
             }
 
-            _roomService.Update(_mapper.Map<RoomDetailsVm, RoomDTO>(model));
+            _roomService.Update(_mapper.Map<RoomDetailsVm, RoomDto>(model));
 
             return RedirectToAction("List");
         }

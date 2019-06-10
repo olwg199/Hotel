@@ -12,14 +12,14 @@ namespace Hotel.WEB.Models.Reservation
     {
         public CreateReservationVm() { }
 
-        public CreateReservationVm(RoomTypeDTO type)
+        public CreateReservationVm(RoomTypeDto type)
         {
             RoomType = type;
         }
 
         [Required]
         [Display(Name = "Тип номера")]
-        public RoomTypeDTO RoomType { get; set; }
+        public RoomTypeDto RoomType { get; set; }
 
         [Required]
         [Display(Name = "Дата заселения")]

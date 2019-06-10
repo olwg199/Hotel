@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Hotel.BLL.Services
 {
-    public class StatusService : IService<StatusDTO>
+    public class StatusService : IService<StatusDto>
     {
         private IRepository<Status> _repository;
         private IMapper _mapper;
@@ -22,26 +22,26 @@ namespace Hotel.BLL.Services
             _mapper = mapper;
         }
 
-        public StatusDTO Get(int id)
+        public StatusDto Get(int id)
         {
-            return _mapper.Map<Status, StatusDTO>(_repository.Get(id));
+            return _mapper.Map<Status, StatusDto>(_repository.Get(id));
         }
 
-        public IEnumerable<StatusDTO> GetAll()
+        public IEnumerable<StatusDto> GetAll()
         {
-            return _repository.GetAll().Select(s => _mapper.Map<Status, StatusDTO>(s)).ToList();
+            return _repository.GetAll().Select(s => _mapper.Map<Status, StatusDto>(s)).ToList();
         }
 
-        public void Create(StatusDTO item)
+        public void Create(StatusDto item)
         {
-            var status = _mapper.Map<StatusDTO, Status>(item);
+            var status = _mapper.Map<StatusDto, Status>(item);
 
             _repository.Create(status);
         }
 
-        public void Update(StatusDTO item)
+        public void Update(StatusDto item)
         {
-            var status = _mapper.Map<StatusDTO, Status>(item);
+            var status = _mapper.Map<StatusDto, Status>(item);
 
             _repository.Update(status);
         }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Hotel.BLL.DTO
 {
-    public class DiscountDTO
+    public class DiscountDto
     {
         public int Id { get; set; }
 

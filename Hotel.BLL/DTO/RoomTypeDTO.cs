@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hotel.BLL.DTO
 {
-    public class RoomTypeDTO
+    public class RoomTypeDto
     {
         public int Id { get; set; }
 
@@ -18,6 +18,6 @@ namespace Hotel.BLL.DTO
 
         public string PathToImage { get; set; }
 
-        public ICollection<ConvenienceDTO> Conveniences { get; set; }
+        public ICollection<ConvenienceDto> Conveniences { get; set; }
     }
 }
