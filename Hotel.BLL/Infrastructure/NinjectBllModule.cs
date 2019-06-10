@@ -13,11 +13,11 @@ using Ninject;
 
 namespace Hotel.BLL.Infrastructure
 {
-    public class ServiceModule : NinjectModule
+    public class NinjectBllModule : NinjectModule
     {
-        private string _connectionString;
+        private readonly string _connectionString;
 
-        public ServiceModule(string connectionString)
+        public NinjectBllModule(string connectionString)
         {
             _connectionString = connectionString;
         }

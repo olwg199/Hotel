@@ -7,7 +7,7 @@ using Ninject.Modules;
 
 namespace Hotel.WEB.Infrastructure
 {
-    public class UserModule : NinjectModule
+    public class NinjectWebModule : NinjectModule
     {
         public override void Load()
         {

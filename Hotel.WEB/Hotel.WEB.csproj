@@ -361,7 +361,7 @@
     <Compile Include="Models\Reservation\CreateReservationVm.cs" />
     <Compile Include="Models\Shared\RoomTypeVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Infrastructure\UserModule.cs" />
+    <Compile Include="Infrastructure\NinjectWebModule.cs" />
     <Compile Include="Infrastructure\WebMappingProfile.cs" />
   </ItemGroup>
   <ItemGroup>
