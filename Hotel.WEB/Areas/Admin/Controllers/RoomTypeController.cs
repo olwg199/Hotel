@@ -52,10 +52,9 @@ namespace Hotel.WEB.Areas.Admin.Controllers
                 return View(model);
             }
 
-            var name = Path.GetFileName(image.FileName);
             RoomTypeDto type = _mapper.Map<RoomTypeDto>(model);
-            type.PathToImage = Server.MapPath("~/App_Data/Images/" + name);
-            image.SaveAs(type.PathToImage);
+            type.PathToImage = "/Content/img/" + image.FileName;
+            image.SaveAs(Server.MapPath(type.PathToImage));
 
             _roomTypeService.Create(type);
 
