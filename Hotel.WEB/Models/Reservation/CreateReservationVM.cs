@@ -1,25 +1,17 @@
-﻿using System;
+﻿using Hotel.BLL.DTO;
+using Hotel.WEB.Models.Shared;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Hotel.BLL.DTO;
 
 namespace Hotel.WEB.Models.Reservation
 {
     public class CreateReservationVm
     {
-        public CreateReservationVm() { }
-
-        public CreateReservationVm(RoomTypeDto type)
-        {
-            RoomType = type;
-        }
-
         [Required]
         [Display(Name = "Тип номера")]
-        public RoomTypeDto RoomType { get; set; }
+        public RoomTypeVm RoomType { get; set; }
 
         [Required]
         [Display(Name = "Дата заселения")]

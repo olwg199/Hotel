@@ -1,4 +1,4 @@
-﻿@model Hotel.WEB.Models.Reservation.CreateReservationVM
+﻿@model Hotel.WEB.Models.Reservation.CreateReservationVm
 
 @{
     ViewBag.Title = "Create";
@@ -31,6 +31,12 @@
             @Html.ValidationMessageFor(model => model.DepartureDate, "", new { @class = "text-danger" })
         </div>
     </div>
+    
+    <div class="row">
+        <div class="col" id="RoomTypeDetails">
+            @Html.Partial("_RoomType", Model.RoomType)
+        </div>
+    </div>
 
     <div class="row">
         <div class="form-group col">
@@ -40,4 +46,22 @@
     </div>
 
 </div>
+}
+
+@section scripts{
+    <script>
+        $(document).ready(function() {
+            $('select').change(function() {
+                $("#RoomTypeDetails").load(
+                    '@Url.Action("GetPartialRoomType")',
+                    { id: $('select').val() },
+                    function () {});
+            });
+        });
+
+        function LoadDetails(index)
+        {
+            
+        }
+    </script>
 }

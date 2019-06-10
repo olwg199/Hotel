@@ -6,7 +6,6 @@ using Hotel.DAL.Identity;
 using Hotel.DAL.Identity.Entities;
 using Microsoft.AspNet.Identity;
 using System;
-using System.Data.Entity.Validation;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -15,8 +14,8 @@ namespace Hotel.BLL.Services
 {
     public class UserService : IUserService
     {
-        private ApplicationUserManager _userManager;
-        private IMapper _mapper;
+        private readonly ApplicationUserManager _userManager;
+        private readonly IMapper _mapper;
 
         public UserService() { }
 

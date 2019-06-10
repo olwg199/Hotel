@@ -7,6 +7,7 @@ using AutoMapper;
 using Hotel.BLL.DTO;
 using Hotel.BLL.Interfaces;
 using Hotel.WEB.Models.Reservation;
+using Hotel.WEB.Models.Shared;
 using Microsoft.AspNet.Identity;
 
 namespace Hotel.WEB.Controllers
@@ -28,7 +29,8 @@ namespace Hotel.WEB.Controllers
         [HttpGet]
         public ActionResult Create(int id)
         {
-            CreateReservationVm model = new CreateReservationVm(_roomTypeService.Get(id));
+            CreateReservationVm model = new CreateReservationVm();
+            model.RoomType = _mapper.Map<RoomTypeVm>(_roomTypeService.Get(id));
             model.RoomTypes = new SelectList(_roomTypeService.GetAll(), "Id", "Name");
             return View(model);
         }
@@ -49,12 +51,20 @@ namespace Hotel.WEB.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // GET: Reservarion/List/Id
+        // GET: Reservarion/List/
         [HttpGet]
         public ActionResult List()
         {
             IEnumerable<ReservationDto> reservations = _reservationService.GetAll();
             return View();
+        }
+
+        // GET: Reservarion/GetPartialRoomType
+        [HttpPost]
+        public ActionResult GetPartialRoomType(int id)
+        {
+            var model = _mapper.Map<RoomTypeVm>(_roomTypeService.Get(id));
+            return PartialView("_RoomType", model);
         }
     }
 }

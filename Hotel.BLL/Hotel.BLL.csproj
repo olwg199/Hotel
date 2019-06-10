@@ -71,6 +71,8 @@
     <Compile Include="Infrastructure\BLLMappingProfile.cs" />
     <Compile Include="Infrastructure\OperationDetails.cs" />
     <Compile Include="Infrastructure\ServiceModule.cs" />
+    <Compile Include="Interfaces\IReservationService.cs" />
+    <Compile Include="Interfaces\IRoomTypeService.cs" />
     <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

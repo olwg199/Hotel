@@ -3,18 +3,15 @@ using Hotel.BLL.DTO;
 using Hotel.BLL.Interfaces;
 using Hotel.DAL.Entities;
 using Hotel.DAL.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hotel.BLL.Services
 {
     public class RoomService : IService<RoomDto>
     {
-        private IRepository<Room> _repository;
-        private IMapper _mapper;
+        private readonly IRepository<Room> _repository;
+        private readonly IMapper _mapper;
 
         public RoomService(IRepository<Room> repository, IMapper mapper)
         {

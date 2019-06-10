@@ -3,18 +3,15 @@ using Hotel.BLL.DTO;
 using Hotel.BLL.Interfaces;
 using Hotel.DAL.Entities;
 using Hotel.DAL.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hotel.BLL.Services
 {
     public class DiscountService : IService<DiscountDto>
     {
-        private IRepository<Discount> _repository;
-        private IMapper _mapper;
+        private readonly IRepository<Discount> _repository;
+        private readonly IMapper _mapper;
 
         public DiscountService(IRepository<Discount> repository, IMapper mapper)
         {

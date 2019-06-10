@@ -3,18 +3,15 @@ using Hotel.BLL.DTO;
 using Hotel.BLL.Interfaces;
 using Hotel.DAL.Entities;
 using Hotel.DAL.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hotel.BLL.Services
 {
     public class ConvenienceService : IService<ConvenienceDto>
     {
-        private IRepository<Convenience> _repository;
-        private IMapper _mapper;
+        private readonly IRepository<Convenience> _repository;
+        private readonly IMapper _mapper;
 
         public ConvenienceService(IRepository<Convenience> repository, IMapper mapper)
         {

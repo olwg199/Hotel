@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Hotel.BLL.DTO;
 using Hotel.BLL.Interfaces;
 using Hotel.DAL.Entities;
 using Hotel.DAL.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Hotel.BLL.Services
 {
-    public class ReservationService : IService<ReservationDto>
+    public class ReservationService : IReservationService
     {
-        private IRepository<Reservation> _repository;
-        private IMapper _mapper;
+        private readonly IRepository<Reservation> _repository;
+        private readonly IMapper _mapper;
 
         public ReservationService(IRepository<Reservation> repository, IMapper mapper)
         {
