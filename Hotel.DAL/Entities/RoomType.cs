@@ -12,6 +12,8 @@ namespace Hotel.DAL.Entities
 
         public long Price { get; set; }
 
+        public string PathToImage { get; set; }
+
         public virtual ICollection<Convenience> Conveniences { get; set; }
 
         public virtual ICollection<Room> Rooms { get; set; }

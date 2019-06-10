@@ -13,9 +13,9 @@ namespace Hotel.WEB.Areas.Admin.Controllers
     public class RoomController : Controller
     {
 
-        private IService<RoomDTO> _roomService;
-        private IService<RoomTypeDTO> _roomTypeService;
-        private IMapper _mapper;
+        private readonly IService<RoomDTO> _roomService;
+        private readonly IService<RoomTypeDTO> _roomTypeService;
+        private readonly IMapper _mapper;
 
         public RoomController(IService<RoomDTO> roomService, IService<RoomTypeDTO> roomTypeService, IMapper mapper)
         {

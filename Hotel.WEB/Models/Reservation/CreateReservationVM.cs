@@ -17,16 +17,18 @@ namespace Hotel.WEB.Models.Reservation
             RoomType = type;
         }
 
-        public UserDTO Cleint { get; set; }
-
+        [Required]
+        [Display(Name = "Тип номера")]
         public RoomTypeDTO RoomType { get; set; }
 
         [Required]
+        [Display(Name = "Дата заселения")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
         public DateTime ArrivalDate { get; set; }
 
         [Required]
+        [Display(Name = "Дата выезда")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DepartureDate { get; set; }

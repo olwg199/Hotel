@@ -5,6 +5,7 @@
 
 #Custom ignore
 scripts/
+img/
 
 # User-specific files
 *.rsuser

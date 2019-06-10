@@ -16,6 +16,8 @@ namespace Hotel.BLL.DTO
 
         public long Price { get; set; }
 
+        public string PathToImage { get; set; }
+
         public ICollection<ConvenienceDTO> Conveniences { get; set; }
     }
 }

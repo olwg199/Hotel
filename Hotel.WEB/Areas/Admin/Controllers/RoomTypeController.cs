@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -22,7 +23,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
             _convenienceService = convenienceService;
             _mapper = mapper;
         }
-
+        
         // GET: Admin/RoomType/List
         [HttpGet]
         public ActionResult List()
@@ -37,12 +38,13 @@ namespace Hotel.WEB.Areas.Admin.Controllers
             RoomTypeDetails model = new RoomTypeDetails();
             model.AvailableConveniences = new SelectList(_convenienceService.GetAll(), "Id", "Name");
 
+            
             return View("Details", model);
         }
 
         // POST: Admin/RoomType/Create
         [HttpPost]
-        public ActionResult Create(RoomTypeDetails model)
+        public ActionResult Create(RoomTypeDetails model, HttpPostedFileBase image)
         {
             if (!ModelState.IsValid)
             {
@@ -50,7 +52,12 @@ namespace Hotel.WEB.Areas.Admin.Controllers
                 return View(model);
             }
 
-            _roomTypeService.Create(_mapper.Map<RoomTypeDTO>(model));
+            var name = Path.GetFileName(image.FileName);
+            RoomTypeDTO type = _mapper.Map<RoomTypeDTO>(model);
+            type.PathToImage = Server.MapPath("~/App_Data/Images/" + name);
+            image.SaveAs(type.PathToImage);
+
+            _roomTypeService.Create(type);
 
             return RedirectToAction("List");
         }
@@ -68,15 +75,19 @@ namespace Hotel.WEB.Areas.Admin.Controllers
 
         // POST: Admin/RoomType/Edit
         [HttpPost]
-        public ActionResult Edit(RoomTypeDetails model)
+        public ActionResult Edit(RoomTypeDetails model, HttpPostedFileBase image)
         {
             if (!ModelState.IsValid)
             {
                 model.AvailableConveniences = new SelectList(_convenienceService.GetAll(), "Id", "Name");
                 return View(model);
             }
+            
+            RoomTypeDTO type = _mapper.Map<RoomTypeDTO>(model);
+            type.PathToImage = "/Content/img/" + image.FileName;
+            image.SaveAs(Server.MapPath(type.PathToImage));
 
-            _roomTypeService.Update(_mapper.Map<RoomTypeDTO>(model));
+            _roomTypeService.Update(type);
 
             return RedirectToAction("List");
         }
