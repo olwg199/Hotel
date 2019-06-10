@@ -12,10 +12,10 @@ namespace Hotel.DAL.Entities
     {
         public int Id { get; set; }
 
-        public string CleintId { get; set; }
+        public string ClientId { get; set; }
 
         [Required]
-        public ApplicationUser Cleint { get; set; }
+        public ApplicationUser Client { get; set; }
 
         public string ManagerId { get; set; }
 
@@ -29,6 +29,8 @@ namespace Hotel.DAL.Entities
         public int? RoomId { get; set; }
 
         public Room Room { get; set; }
+
+        public decimal TotalPrice { get; set; }
 
         [Required]
         public DateTime ArrivalDate { get; set; }

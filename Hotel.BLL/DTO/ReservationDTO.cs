@@ -10,13 +10,15 @@ namespace Hotel.BLL.DTO
     {
         public int Id { get; set; }
 
-        public string CleintId { get; set; }
+        public string ClientId { get; set; }
 
         public string ManagerId { get; set; }
 
         public RoomDTO Room { get; set; }
 
         public RoomTypeDTO RoomType { get; set; }
+
+        public decimal TotalPrice { get; set; }
 
         public DateTime ArrivalDate { get; set; }
 
