@@ -35,7 +35,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            RoomDetails model = new RoomDetails();
+            RoomDetailsVm model = new RoomDetailsVm();
             model.RoomTypes = new SelectList(_roomTypeService.GetAll(), "Id", "Name");
 
             return View("Details", model);
@@ -43,7 +43,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
         
         // POST: Admin/Room/Create
         [HttpPost]
-        public ActionResult Create(RoomDetails model)
+        public ActionResult Create(RoomDetailsVm model)
         {
             if (!ModelState.IsValid)
             {
@@ -51,7 +51,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
                 return View("Details", model);
             }
 
-            _roomService.Create(_mapper.Map<RoomDetails, RoomDTO>(model));
+            _roomService.Create(_mapper.Map<RoomDetailsVm, RoomDTO>(model));
 
             return RedirectToAction("List");
         }
@@ -60,7 +60,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            RoomDetails model = _mapper.Map<RoomDetails>(_roomService.Get(id));
+            RoomDetailsVm model = _mapper.Map<RoomDetailsVm>(_roomService.Get(id));
             model.RoomTypes = new SelectList(_roomTypeService.GetAll(), "Id", "Name");
 
             return View("Details", model);
@@ -68,7 +68,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
 
         // POST: Admin/Room/Edit
         [HttpPost]
-        public ActionResult Edit(RoomDetails model)
+        public ActionResult Edit(RoomDetailsVm model)
         {
             if (!ModelState.IsValid)
             {
@@ -76,7 +76,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
                 return View("Details", model);
             }
 
-            _roomService.Update(_mapper.Map<RoomDetails, RoomDTO>(model));
+            _roomService.Update(_mapper.Map<RoomDetailsVm, RoomDTO>(model));
 
             return RedirectToAction("List");
         }

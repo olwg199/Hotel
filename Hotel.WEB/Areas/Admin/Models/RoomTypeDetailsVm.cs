@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace Hotel.WEB.Areas.Admin.Models
 {
-    public class RoomTypeDetails
+    public class RoomTypeDetailsVm
     {
         public int Id { get; set; }
 

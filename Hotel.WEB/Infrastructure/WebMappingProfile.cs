@@ -1,31 +1,28 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using Hotel.BLL.DTO;
-using Hotel.WEB.Models.Account;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Hotel.WEB.Areas.Admin.Models;
+using Hotel.WEB.Models.Account;
 using Hotel.WEB.Models.Reservation;
 
-namespace Hotel.WEB.Util
+namespace Hotel.WEB.Infrastructure
 {
     public class WebMappingProfile : Profile
     {
         public WebMappingProfile()
         {
-            CreateMap<Registration, UserDTO>();
+            CreateMap<RegistrationVm, UserDTO>();
             
-            CreateMap<CreateReservationVM, ReservationDTO>();
+            CreateMap<CreateReservationVm, ReservationDTO>();
 
-            CreateMap<RoomDTO, RoomDetails>();
-            CreateMap<RoomDetails, RoomDTO>();
+            CreateMap<RoomDTO, RoomDetailsVm>();
+            CreateMap<RoomDetailsVm, RoomDTO>();
 
-            CreateMap<RoomTypeDTO, RoomTypeDetails>()
+            CreateMap<RoomTypeDTO, RoomTypeDetailsVm>()
                 .ForMember(
                     dest => dest.SelectedConveniences, 
                     opt => opt.MapFrom(t => t.Conveniences.Select(x => x.Id).ToArray()));
-            CreateMap<RoomTypeDetails, RoomTypeDTO>()
+            CreateMap<RoomTypeDetailsVm, RoomTypeDTO>()
                 .ForMember(
                     dest => dest.Conveniences,
                     opt => opt.MapFrom(t => t.SelectedConveniences.Select(conv => new ConvenienceDTO{Id = conv})));

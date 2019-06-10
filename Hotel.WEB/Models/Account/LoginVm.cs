@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Hotel.WEB.Models.Account
 {
-    public class Login
+    public class LoginVm
     {
         [Required(ErrorMessage = "Вы не ввели логин")]
         [DataType(DataType.Text)]

@@ -43,7 +43,7 @@ namespace Hotel.WEB.Controllers
         // POST: Account/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(Login model)
+        public async Task<ActionResult> Login(LoginVm model)
         {
             if (!ModelState.IsValid)
             {
@@ -78,14 +78,14 @@ namespace Hotel.WEB.Controllers
 
         // Post: Account/Registration
         [HttpPost]
-        public async Task<ActionResult> Registration(Registration model)
+        public async Task<ActionResult> Registration(RegistrationVm model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            UserDTO user = _mapper.Map<Registration, UserDTO>(model);
+            UserDTO user = _mapper.Map<RegistrationVm, UserDTO>(model);
 
             OperationDetails details = await _userService.Registration(user);
 

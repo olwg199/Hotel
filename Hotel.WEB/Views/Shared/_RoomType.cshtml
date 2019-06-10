@@ -1,0 +1,27 @@
+﻿@model Hotel.BLL.DTO.RoomTypeDTO
+
+<div class="card m-3">
+    <div class="row no-gutters">
+        <div class="col-lg-5 w-100">
+            <img src="@Model.PathToImage" class="card-img" alt="">
+        </div>
+        <div class="col-lg-7">
+            <div class="card-body">
+                <div class="row">
+                    <h5 class="card-title col-lg-6">@Model.Name</h5>
+                    <p class="card-text col-lg-6">Стоимость: от @Model.Price</p>
+                </div>
+                <p class="card-text">@Model.Description</p>
+                @Html.LabelFor(x => Model.Conveniences)
+                <p class="card-text">
+                    @foreach (var conv in Model.Conveniences)
+                    {
+                        <span class="badge badge-primary rounded-0 p-2">@conv.Name</span>
+                    }
+                </p>
+
+                @Html.ActionLink("Забронировать", "Create", new {controller = "Reservarion", id = Model.Id}, new {@class = "btn btn-success"})
+            </div>
+        </div>
+    </div>
+</div>

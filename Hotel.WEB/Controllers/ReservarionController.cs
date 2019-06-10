@@ -28,14 +28,14 @@ namespace Hotel.WEB.Controllers
         [HttpGet]
         public ActionResult Create(int id)
         {
-            CreateReservationVM model = new CreateReservationVM(_roomTypeService.Get(id));
+            CreateReservationVm model = new CreateReservationVm(_roomTypeService.Get(id));
             model.RoomTypes = new SelectList(_roomTypeService.GetAll(), "Id", "Name");
             return View(model);
         }
 
         // POST: Reservarion/Create/Id
         [HttpPost]
-        public ActionResult Create(CreateReservationVM model)
+        public ActionResult Create(CreateReservationVm model)
         {
             if (!ModelState.IsValid)
             {
@@ -44,7 +44,7 @@ namespace Hotel.WEB.Controllers
             }
 
             ReservationDTO reservation = _mapper.Map<ReservationDTO>(model);
-            reservation.CleintId = this.HttpContext.User.Identity.GetUserId();
+            reservation.ClientId = this.HttpContext.User.Identity.GetUserId();
             _reservationService.Create(reservation);
             return RedirectToAction("Index", "Home");
         }

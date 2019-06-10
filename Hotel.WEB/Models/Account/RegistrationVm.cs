@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Hotel.WEB.Models.Account
 {
-    public class Registration
+    public class RegistrationVm
     {
         [Required(ErrorMessage = "Поле электронной почты обязательно для заполнения")]
         [Display(Name = "Электронная почта")]

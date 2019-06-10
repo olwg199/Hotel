@@ -1,11 +1,11 @@
 ﻿using Hotel.BLL.Infrastructure;
 using Hotel.WEB.App_Start;
-using Hotel.WEB.Util;
 using Ninject;
 using Ninject.Web.Mvc;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Hotel.WEB.Infrastructure;
 
 namespace Hotel.WEB
 {

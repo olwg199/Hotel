@@ -7,30 +7,5 @@
 
 @foreach (var item in Model)
 {
-    <div class="card m-3">
-        <div class="row no-gutters">
-            <div class="col-lg-5 w-100">
-                <img src="@item.PathToImage" class="card-img" alt="">
-            </div>
-            <div class="col-lg-7">
-                <div class="card-body">
-                    <div class="row">
-                        <h5 class="card-title col-lg-6">@item.Name</h5>
-                        <p class="card-text col-lg-6">Стоимость: от @item.Price</p>
-                    </div>
-                    <p class="card-text">@item.Description</p>
-                    @Html.LabelFor(x => item.Conveniences)
-                    <p class="card-text">
-                        @foreach (var conv in item.Conveniences)
-                        {
-                            <span class="badge badge-primary rounded-0 p-2">@conv.Name</span>
-                        }
-                    </p>
-
-                    @Html.ActionLink("Забронировать", "Create", new {controller = "Reservarion", id = item.Id}, new {@class = "btn btn-success"})
-                </div>
-            </div>
-        </div>
-    </div>
-
+    @Html.Partial("_RoomType", item)
 }

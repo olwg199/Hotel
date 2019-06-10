@@ -35,7 +35,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            RoomTypeDetails model = new RoomTypeDetails();
+            RoomTypeDetailsVm model = new RoomTypeDetailsVm();
             model.AvailableConveniences = new SelectList(_convenienceService.GetAll(), "Id", "Name");
 
             
@@ -44,7 +44,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
 
         // POST: Admin/RoomType/Create
         [HttpPost]
-        public ActionResult Create(RoomTypeDetails model, HttpPostedFileBase image)
+        public ActionResult Create(RoomTypeDetailsVm model, HttpPostedFileBase image)
         {
             if (!ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
         public ActionResult Edit(int id)
         {
             RoomTypeDTO type = _roomTypeService.Get(id);
-            RoomTypeDetails model = _mapper.Map<RoomTypeDetails>(type);
+            RoomTypeDetailsVm model = _mapper.Map<RoomTypeDetailsVm>(type);
             model.AvailableConveniences = new MultiSelectList(_convenienceService.GetAll(), "Id", "Name", type.Conveniences);
 
             return View("Details", model);
@@ -75,7 +75,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
 
         // POST: Admin/RoomType/Edit
         [HttpPost]
-        public ActionResult Edit(RoomTypeDetails model, HttpPostedFileBase image)
+        public ActionResult Edit(RoomTypeDetailsVm model, HttpPostedFileBase image)
         {
             if (!ModelState.IsValid)
             {

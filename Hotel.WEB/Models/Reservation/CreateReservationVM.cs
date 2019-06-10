@@ -8,11 +8,11 @@ using Hotel.BLL.DTO;
 
 namespace Hotel.WEB.Models.Reservation
 {
-    public class CreateReservationVM
+    public class CreateReservationVm
     {
-        public CreateReservationVM() { }
+        public CreateReservationVm() { }
 
-        public CreateReservationVM(RoomTypeDTO type)
+        public CreateReservationVm(RoomTypeDTO type)
         {
             RoomType = type;
         }

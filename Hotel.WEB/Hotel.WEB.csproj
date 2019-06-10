@@ -194,7 +194,7 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Convenience\List.cshtml" />
-    <Content Include="Areas\Admin\Views\Convenience\EditOrCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\Convenience\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Reservation\List.cshtml" />
     <Content Include="Areas\Admin\Views\Room\List.cshtml" />
     <Content Include="Areas\Admin\Views\Room\Details.cshtml" />
@@ -348,20 +348,20 @@
     <Compile Include="Areas\Admin\Controllers\ConvenienceController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoomController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoomTypeController.cs" />
-    <Compile Include="Areas\Admin\Models\RoomDetails.cs" />
-    <Compile Include="Areas\Admin\Models\RoomTypeDetails.cs" />
+    <Compile Include="Areas\Admin\Models\RoomDetailsVm.cs" />
+    <Compile Include="Areas\Admin\Models\RoomTypeDetailsVm.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReservarionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Account\Login.cs" />
-    <Compile Include="Models\Account\Registration.cs" />
-    <Compile Include="Models\Reservation\CreateReservationVM.cs" />
+    <Compile Include="Models\Account\LoginVm.cs" />
+    <Compile Include="Models\Account\RegistrationVm.cs" />
+    <Compile Include="Models\Reservation\CreateReservationVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\UserModule.cs" />
-    <Compile Include="Util\WebMappingProfile.cs" />
+    <Compile Include="Infrastructure\UserModule.cs" />
+    <Compile Include="Infrastructure\WebMappingProfile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -384,6 +384,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Registration.cshtml" />
     <Content Include="Views\Reservarion\Create.cshtml" />
+    <Content Include="Views\Shared\_RoomType.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

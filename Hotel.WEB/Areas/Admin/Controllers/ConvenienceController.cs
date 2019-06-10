@@ -31,7 +31,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View("EditOrCreate");
+            return View("Details");
         }
 
         // POST: Admin/Convenience/Create
@@ -40,7 +40,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("EditOrCreate", model);
+                return View("Details", model);
             }
 
             _service.Create(model);
@@ -52,7 +52,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            return View("EditOrCreate", _service.Get(id));
+            return View("Details", _service.Get(id));
         }
 
         // POST: Admin/Convenience/Edit
@@ -61,7 +61,7 @@ namespace Hotel.WEB.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("EditOrCreate", model);
+                return View("Details", model);
             }
 
             _service.Update(model);
