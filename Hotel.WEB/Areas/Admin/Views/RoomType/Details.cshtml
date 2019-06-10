@@ -37,7 +37,6 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.SelectedConveniences, htmlAttributes: new { @class = "control-label col-md-2" })
                     @Html.ListBoxFor(model => model.SelectedConveniences, Model.AvailableConveniences, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group">

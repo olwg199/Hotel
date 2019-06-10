@@ -359,6 +359,7 @@
     <Compile Include="Models\Account\LoginVm.cs" />
     <Compile Include="Models\Account\RegistrationVm.cs" />
     <Compile Include="Models\Reservation\CreateReservationVm.cs" />
+    <Compile Include="Models\Shared\RoomTypeVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Infrastructure\UserModule.cs" />
     <Compile Include="Infrastructure\WebMappingProfile.cs" />

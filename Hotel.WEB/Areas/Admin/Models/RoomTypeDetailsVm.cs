@@ -18,7 +18,8 @@ namespace Hotel.WEB.Areas.Admin.Models
         public string Description { get; set; }
         
         [Display(Name = "Стоимость")]
-        public long Price { get; set; }
+        [DataType(DataType.Currency)]
+        public decimal Price { get; set; }
 
         public string PathToImage { get; set; }
 

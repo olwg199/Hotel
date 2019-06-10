@@ -6,13 +6,14 @@ using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using Hotel.BLL.DTO;
+using Hotel.WEB.Models.Shared;
 
 namespace Hotel.WEB.Controllers
 {
     public class HomeController : Controller
     {
-        private IService<RoomTypeDto> _service;
-        private IMapper _mapper;
+        private readonly IService<RoomTypeDto> _service;
+        private readonly IMapper _mapper;
 
         public HomeController(IService<RoomTypeDto> service, IMapper mapper)
         {
@@ -23,7 +24,7 @@ namespace Hotel.WEB.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View(_service.GetAll());
+            return View(_service.GetAll().Select(x => _mapper.Map<RoomTypeVm>(x)));
         }
     }
 }

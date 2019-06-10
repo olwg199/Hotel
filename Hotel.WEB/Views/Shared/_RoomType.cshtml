@@ -1,4 +1,4 @@
-﻿@model Hotel.BLL.DTO.RoomTypeDto
+﻿@model Hotel.WEB.Models.Shared.RoomTypeVm
 
 <div class="card m-3">
     <div class="row no-gutters">
@@ -8,11 +8,14 @@
         <div class="col-lg-7">
             <div class="card-body">
                 <div class="row">
-                    <h5 class="card-title col-lg-6">@Model.Name</h5>
-                    <p class="card-text col-lg-6">Стоимость: от @Model.Price</p>
+                    <h5 class="card-title col-4">
+                        @Html.DisplayTextFor(x => x.Name)
+                    </h5>
+                    <p class="card-text col-3 ml-auto">
+                        от @Model.Price.ToString("C")
+                    </p>
                 </div>
                 <p class="card-text">@Model.Description</p>
-                @Html.LabelFor(x => Model.Conveniences)
                 <p class="card-text">
                     @foreach (var conv in Model.Conveniences)
                     {

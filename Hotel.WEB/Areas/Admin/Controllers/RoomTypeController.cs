@@ -79,12 +79,15 @@ namespace Hotel.WEB.Areas.Admin.Controllers
             if (!ModelState.IsValid)
             {
                 model.AvailableConveniences = new SelectList(_convenienceService.GetAll(), "Id", "Name");
-                return View(model);
+                return View("Details", model);
             }
             
             RoomTypeDto type = _mapper.Map<RoomTypeDto>(model);
-            type.PathToImage = "/Content/img/" + image.FileName;
-            image.SaveAs(Server.MapPath(type.PathToImage));
+            if (image != null)
+            {
+                type.PathToImage = "/Content/img/" + image.FileName;
+                image.SaveAs(Server.MapPath(type.PathToImage));
+            }
 
             _roomTypeService.Update(type);
 

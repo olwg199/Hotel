@@ -4,6 +4,7 @@ using Hotel.BLL.DTO;
 using Hotel.WEB.Areas.Admin.Models;
 using Hotel.WEB.Models.Account;
 using Hotel.WEB.Models.Reservation;
+using Hotel.WEB.Models.Shared;
 
 namespace Hotel.WEB.Infrastructure
 {
@@ -17,6 +18,9 @@ namespace Hotel.WEB.Infrastructure
 
             CreateMap<RoomDto, RoomDetailsVm>();
             CreateMap<RoomDetailsVm, RoomDto>();
+
+            CreateMap<RoomTypeDto, RoomTypeVm>();
+            CreateMap<RoomTypeVm, RoomTypeDto>();
 
             CreateMap<RoomTypeDto, RoomTypeDetailsVm>()
                 .ForMember(
