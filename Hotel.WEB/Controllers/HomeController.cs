@@ -6,9 +6,9 @@ using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using Hotel.BLL.DTO;
-using Hotel.WEB.Models.Shared;
+using Hotel.Web.Models.Shared;
 
-namespace Hotel.WEB.Controllers
+namespace Hotel.Web.Controllers
 {
     public class HomeController : Controller
     {

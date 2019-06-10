@@ -1,7 +1,7 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Hotel.WEB.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(Hotel.WEB.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Hotel.Web.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(Hotel.Web.App_Start.NinjectWebCommon), "Stop")]
 
-namespace Hotel.WEB.App_Start
+namespace Hotel.Web.App_Start
 {
     using System;
     using System.Web;

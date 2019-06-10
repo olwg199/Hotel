@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Hotel.BLL.DTO;
-using Hotel.DAL.Entities;
-using Hotel.DAL.Identity.Entities;
+using Hotel.DomainEntities.Entities;
+using Hotel.DomainEntities.Identity.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

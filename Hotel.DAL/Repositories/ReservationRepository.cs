@@ -5,11 +5,11 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Hotel.DAL.EF;
-using Hotel.DAL.Entities;
-using Hotel.DAL.Interfaces;
+using Hotel.DomainEntities.EF;
+using Hotel.DomainEntities.Entities;
+using Hotel.DomainEntities.Interfaces;
 
-namespace Hotel.DAL.Repositories
+namespace Hotel.DomainEntities.Repositories
 {
     public class ReservationRepository : IRepository<Reservation>
     {

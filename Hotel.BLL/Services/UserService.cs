@@ -2,8 +2,8 @@
 using Hotel.BLL.DTO;
 using Hotel.BLL.Infrastructure;
 using Hotel.BLL.Interfaces;
-using Hotel.DAL.Identity;
-using Hotel.DAL.Identity.Entities;
+using Hotel.DomainEntities.Identity;
+using Hotel.DomainEntities.Identity.Entities;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Linq;

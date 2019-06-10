@@ -1,14 +1,14 @@
-﻿using Hotel.DAL.Entities;
-using Hotel.DAL.Identity.Entities;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hotel.DomainEntities.Entities;
+using Hotel.DomainEntities.Identity.Entities;
 
-namespace Hotel.DAL.EF
+namespace Hotel.DomainEntities.EF
 {
     public class HotelDbContext : IdentityDbContext<ApplicationUser>
     {

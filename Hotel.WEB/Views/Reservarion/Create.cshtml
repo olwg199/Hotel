@@ -1,4 +1,4 @@
-﻿@model Hotel.WEB.Models.Reservation.CreateReservationVm
+﻿@model Hotel.Web.Models.Reservation.CreateReservationVm
 
 @{
     ViewBag.Title = "Create";
@@ -51,17 +51,13 @@
 @section scripts{
     <script>
         $(document).ready(function() {
-            $('select').change(function() {
+            $('select').on("change", function () {
+                var id = $(this).val();
                 $("#RoomTypeDetails").load(
                     '@Url.Action("GetPartialRoomType")',
-                    { id: $('select').val() },
+                    { id: id },
                     function () {});
             });
         });
-
-        function LoadDetails(index)
-        {
-            
-        }
     </script>
 }

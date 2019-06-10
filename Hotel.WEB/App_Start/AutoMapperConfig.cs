@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using Hotel.BLL.DTO;
 using Hotel.BLL.Infrastructure;
-using Hotel.WEB.Models.Account;
+using Hotel.Web.Models.Account;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Hotel.WEB.Infrastructure;
+using Hotel.Web.Infrastructure;
 
-namespace Hotel.WEB.App_Start
+namespace Hotel.Web.App_Start
 {
     public class AutoMapperConfig
     {

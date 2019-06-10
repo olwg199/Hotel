@@ -7,9 +7,9 @@ using System.Web.Mvc;
 using AutoMapper;
 using Hotel.BLL.DTO;
 using Hotel.BLL.Interfaces;
-using Hotel.WEB.Areas.Admin.Models;
+using Hotel.Web.Areas.Admin.Models;
 
-namespace Hotel.WEB.Areas.Admin.Controllers
+namespace Hotel.Web.Areas.Admin.Controllers
 {
     public class RoomTypeController : Controller
     {

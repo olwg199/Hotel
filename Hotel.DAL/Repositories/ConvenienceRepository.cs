@@ -1,15 +1,15 @@
-﻿using Hotel.DAL.EF;
-using Hotel.DAL.Entities;
-using Hotel.DAL.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hotel.DomainEntities.EF;
+using Hotel.DomainEntities.Entities;
+using Hotel.DomainEntities.Interfaces;
 
-namespace Hotel.DAL.Repositories
+namespace Hotel.DomainEntities.Repositories
 {
     public class ConvenienceRepository : IRepository<Convenience>
     {

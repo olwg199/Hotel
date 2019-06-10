@@ -2,15 +2,15 @@
 using Hotel.BLL.DTO;
 using Hotel.BLL.Infrastructure;
 using Hotel.BLL.Interfaces;
-using Hotel.WEB.Models.Account;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Hotel.Web.Models.Account;
 
-namespace Hotel.WEB.Controllers
+namespace Hotel.Web.Controllers
 {
     public class AccountController : Controller
     {

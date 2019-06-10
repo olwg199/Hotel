@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Hotel.BLL.DTO;
 using Hotel.BLL.Interfaces;
-using Hotel.DAL.Entities;
-using Hotel.DAL.Interfaces;
+using Hotel.DomainEntities.Entities;
+using Hotel.DomainEntities.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 

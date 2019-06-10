@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Hotel.WEB.Areas.Admin.Controllers
+namespace Hotel.Web.Areas.Admin.Controllers
 {
     public class ConvenienceController : Controller
     {

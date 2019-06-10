@@ -1,12 +1,12 @@
-﻿using Hotel.DAL.Identity.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hotel.DomainEntities.Identity.Entities;
 
-namespace Hotel.DAL.Entities
+namespace Hotel.DomainEntities.Entities
 {
     public class Reservation
     {

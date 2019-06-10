@@ -1,12 +1,12 @@
 ﻿using System.Linq;
 using AutoMapper;
 using Hotel.BLL.DTO;
-using Hotel.WEB.Areas.Admin.Models;
-using Hotel.WEB.Models.Account;
-using Hotel.WEB.Models.Reservation;
-using Hotel.WEB.Models.Shared;
+using Hotel.Web.Areas.Admin.Models;
+using Hotel.Web.Models.Account;
+using Hotel.Web.Models.Reservation;
+using Hotel.Web.Models.Shared;
 
-namespace Hotel.WEB.Infrastructure
+namespace Hotel.Web.Infrastructure
 {
     public class WebMappingProfile : Profile
     {

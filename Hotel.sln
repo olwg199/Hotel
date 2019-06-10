@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.WEB", "Hotel.WEB\Hotel.WEB.csproj", "{B088690E-9D3D-4928-BC8B-684AED3F1932}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Web", "Hotel.WEB\Hotel.Web.csproj", "{B088690E-9D3D-4928-BC8B-684AED3F1932}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.DAL", "Hotel.DAL\Hotel.DAL.csproj", "{319AB944-9516-4455-A4B3-082C44BD3CFC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.DomainEntities", "Hotel.DAL\Hotel.DomainEntities.csproj", "{319AB944-9516-4455-A4B3-082C44BD3CFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.BLL", "Hotel.BLL\Hotel.BLL.csproj", "{ACF9E538-97AC-4F2D-9AA5-ADBF56BDE22A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.BusinessLogic", "Hotel.BLL\Hotel.BusinessLogic.csproj", "{ACF9E538-97AC-4F2D-9AA5-ADBF56BDE22A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

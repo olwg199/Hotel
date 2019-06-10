@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Hotel.WEB.Areas.Admin.Models
+namespace Hotel.Web.Areas.Admin.Models
 {
     public class RoomDetailsVm
     {

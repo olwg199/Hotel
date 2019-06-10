@@ -1,11 +1,11 @@
 ﻿using Hotel.BLL.DTO;
-using Hotel.WEB.Models.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
+using Hotel.Web.Models.Shared;
 
-namespace Hotel.WEB.Models.Reservation
+namespace Hotel.Web.Models.Reservation
 {
     public class CreateReservationVm
     {

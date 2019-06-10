@@ -1,14 +1,14 @@
 ﻿using Hotel.BLL.Interfaces;
-using Hotel.DAL.EF;
-using Hotel.DAL.Identity.Entities;
-using Hotel.DAL.Identity;
+using Hotel.DomainEntities.EF;
+using Hotel.DomainEntities.Identity.Entities;
+using Hotel.DomainEntities.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Ninject.Modules;
 using System.Data.Entity;
-using Hotel.DAL.Entities;
-using Hotel.DAL.Interfaces;
-using Hotel.DAL.Repositories;
+using Hotel.DomainEntities.Entities;
+using Hotel.DomainEntities.Interfaces;
+using Hotel.DomainEntities.Repositories;
 using Ninject;
 
 namespace Hotel.BLL.Infrastructure

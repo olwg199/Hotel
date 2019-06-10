@@ -2,10 +2,10 @@
 using Hotel.BLL.DTO;
 using Hotel.BLL.Interfaces;
 using Hotel.BLL.Services;
-using Hotel.WEB.App_Start;
+using Hotel.Web.App_Start;
 using Ninject.Modules;
 
-namespace Hotel.WEB.Infrastructure
+namespace Hotel.Web.Infrastructure
 {
     public class UserModule : NinjectModule
     {

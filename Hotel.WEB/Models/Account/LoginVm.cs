@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Hotel.WEB.Models.Account
+namespace Hotel.Web.Models.Account
 {
     public class LoginVm
     {

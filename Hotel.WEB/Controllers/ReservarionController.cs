@@ -6,11 +6,11 @@ using System.Web.Mvc;
 using AutoMapper;
 using Hotel.BLL.DTO;
 using Hotel.BLL.Interfaces;
-using Hotel.WEB.Models.Reservation;
-using Hotel.WEB.Models.Shared;
+using Hotel.Web.Models.Reservation;
+using Hotel.Web.Models.Shared;
 using Microsoft.AspNet.Identity;
 
-namespace Hotel.WEB.Controllers
+namespace Hotel.Web.Controllers
 {
     public class ReservarionController : Controller
     {

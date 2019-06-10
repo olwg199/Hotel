@@ -404,9 +404,9 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Hotel.BLL\Hotel.BLL.csproj">
+    <ProjectReference Include="..\Hotel.BLL\Hotel.BusinessLogic.csproj">
       <Project>{acf9e538-97ac-4f2d-9aa5-adbf56bde22a}</Project>
-      <Name>Hotel.BLL</Name>
+      <Name>Hotel.BusinessLogic</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

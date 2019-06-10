@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Hotel.WEB.Areas.Admin
+namespace Hotel.Web.Areas.Admin
 {
     public class AdminAreaRegistration : AreaRegistration 
     {

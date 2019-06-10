@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Hotel.WEB.Models.Account
+namespace Hotel.Web.Models.Account
 {
     public class RegistrationVm
     {

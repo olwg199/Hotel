@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Hotel.WEB.App_Start
+namespace Hotel.Web.App_Start
 {
     public class BundleConfig
     {

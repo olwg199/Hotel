@@ -6,9 +6,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 
-[assembly: OwinStartup(typeof(Hotel.WEB.App_Start.Startup))]
+[assembly: OwinStartup(typeof(Hotel.Web.App_Start.Startup))]
 
-namespace Hotel.WEB.App_Start
+namespace Hotel.Web.App_Start
 {
     public class Startup
     {

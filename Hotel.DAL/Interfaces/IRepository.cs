@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel.DAL.Interfaces
+namespace Hotel.DomainEntities.Interfaces
 {
     public interface IRepository<T> where T : class
     {

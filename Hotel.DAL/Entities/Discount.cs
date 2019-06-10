@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Hotel.DAL.Entities
+namespace Hotel.DomainEntities.Entities
 {
     public class Discount
     {

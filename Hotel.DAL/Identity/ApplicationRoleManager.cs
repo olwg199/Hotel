@@ -1,12 +1,12 @@
-﻿using Hotel.DAL.Identity.Entities;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hotel.DomainEntities.Identity.Entities;
 
-namespace Hotel.DAL.Identity
+namespace Hotel.DomainEntities.Identity
 {
     public class ApplicationRoleManager : RoleManager<ApplicationRole>
     {

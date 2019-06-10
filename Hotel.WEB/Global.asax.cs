@@ -1,13 +1,13 @@
 ﻿using Hotel.BLL.Infrastructure;
-using Hotel.WEB.App_Start;
 using Ninject;
 using Ninject.Web.Mvc;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Hotel.WEB.Infrastructure;
+using Hotel.Web.App_Start;
+using Hotel.Web.Infrastructure;
 
-namespace Hotel.WEB
+namespace Hotel.Web
 {
     public class MvcApplication : System.Web.HttpApplication
     {
