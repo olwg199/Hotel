@@ -23,6 +23,8 @@ namespace Hotel.Web.Areas.Admin.Models
 
         public string PathToImage { get; set; }
 
+        public HttpPostedFileBase Image { get; set; }
+
         public int[] SelectedConveniences { get; set; }
 
         public IEnumerable<SelectListItem> AvailableConveniences { get; set; }

@@ -74,7 +74,7 @@ namespace Hotel.Web.Areas.Admin.Controllers
 
         // POST: Admin/RoomType/Edit
         [HttpPost]
-        public ActionResult Edit(RoomTypeDetailsVm model, HttpPostedFileBase image)
+        public ActionResult Edit(RoomTypeDetailsVm model)
         {
             if (!ModelState.IsValid)
             {
@@ -82,11 +82,15 @@ namespace Hotel.Web.Areas.Admin.Controllers
                 return View("Details", model);
             }
             
+
             RoomTypeDto type = _mapper.Map<RoomTypeDto>(model);
-            if (image != null)
+            if (model.Image != null)
             {
-                type.PathToImage = "/Content/img/" + image.FileName;
-                image.SaveAs(Server.MapPath(type.PathToImage));
+                type.PathToImage = "/Content/img/" + model.Image.FileName;
+                var directory = Directory.CreateDirectory(Server.MapPath("/Content/img"));
+                directory.Create();
+                model.Image.SaveAs(Server.MapPath(type.PathToImage));
+                FileInfo file = directory.EnumerateFiles().FirstOrDefault(x => x.Name == model.Name);
             }
 
             _roomTypeService.Update(type);
