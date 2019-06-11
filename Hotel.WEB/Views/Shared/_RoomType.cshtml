@@ -1,9 +1,9 @@
 ﻿@model Hotel.Web.Models.Shared.RoomTypeVm
 
-<div class="card m-3">
+<div class="card m-2">
     <div class="row no-gutters">
-        <div class="col-lg-5 w-100">
-            <img src="@Model.PathToImage" class="card-img" alt="">
+        <div class="col-lg-5">
+            <img src="@Model.PathToImage" class="card-img w-100" alt="">
         </div>
         <div class="col-lg-7">
             <div class="card-body">
@@ -15,15 +15,13 @@
                         от @Model.Price.ToString("C")
                     </p>
                 </div>
-                <p class="card-text">@Model.Description</p>
+                <p class="card-text">@Model.Description </p>
                 <p class="card-text">
                     @foreach (var conv in Model.Conveniences)
                     {
-                        <span class="badge badge-primary rounded-0 p-2">@conv.Name</span>
+                        <span class="badge badge-primary rounded-0 p-2 m-1">@conv.Name</span>
                     }
                 </p>
-
-                @Html.ActionLink("Забронировать", "Create", new {controller = "Reservarion", id = Model.Id}, new {@class = "btn btn-success"})
             </div>
         </div>
     </div>

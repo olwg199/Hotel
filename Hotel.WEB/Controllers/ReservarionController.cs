@@ -25,9 +25,9 @@ namespace Hotel.Web.Controllers
             _mapper = mapper;
         }
 
-        // GET: Reservarion/Create/Id
+        // POST: Reservarion/Create
         [HttpGet]
-        public ActionResult Create(int id)
+        public ActionResult Create(int id, DateTime ArrivalDate, DateTime DepartureDate)
         {
             CreateReservationVm model = new CreateReservationVm();
             model.RoomType = _mapper.Map<RoomTypeVm>(_roomTypeService.Get(id));
@@ -35,7 +35,7 @@ namespace Hotel.Web.Controllers
             return View(model);
         }
 
-        // POST: Reservarion/Create/Id
+        // POST: Reservarion/Create
         [HttpPost]
         public ActionResult Create(CreateReservationVm model)
         {

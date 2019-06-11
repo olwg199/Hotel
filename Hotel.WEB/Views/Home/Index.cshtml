@@ -5,7 +5,60 @@
     ViewBag.Title = "Главная";
 }
 
+<div class="sticky-top p-2" style="background: rgba(192, 192, 192, 0.7)">
+    <div class="row m-2">
+        <div class="col-lg-3 mt-1 mt-lg-0">
+            @Html.DropDownList("RoomType", new SelectList(Model, "Id", "Name"), new { @class = "form-control" })
+        </div>
+
+        <div class="col-lg-3 col-md-6 mt-1 mt-lg-0">
+            @Html.Editor("ArrivalDate", new { htmlAttributes = new { @class = "form-control", type = "date" } })
+        </div>
+
+        <div class="col-lg-3 col-md-6 mt-1 mt-lg-0">
+            @Html.Editor("DepartureDate", new { htmlAttributes = new { @class = "form-control", type = "date" } })
+        </div>
+
+        <div class="col-lg-3 mt-1 mt-lg-0">
+            <button class="btn btn-success w-100" id="MakeReservarion">Забронировать</button>
+        </div>
+    </div>
+</div>
+
+
 @foreach (var item in Model)
 {
     @Html.Partial("_RoomType", item)
+}
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("#MakeReservarion").on("click",
+                function() {
+                    var roomTypeid = parseInt($("#RoomType").val());
+                    var arrivalDate = $("#ArrivalDate").val();
+                    var departureDate = $("#DepartureDate").val();
+
+                    if (arrivalDate != "" && departureDate != "") {
+                        $.get(
+                            "@Url.Action("Create", "Reservarion")",
+                            {
+                                id: roomTypeid,
+                                ArrivalDate: arrivalDate,
+                                DepartureDate: departureDate
+                            },
+                            function(data) {
+                                $(".container").html(data);
+                            });
+                    } else {
+                        alert("Дата заезда и дата выезда должны быть выбраны");
+                    }
+                    
+                });
+        });
+    </script>
+
+    <script src="~/Content/js/ReservationDateValidate.js"></script>
 }
