@@ -1,11 +1,10 @@
-﻿using Hotel.WEB;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 
-[assembly: OwinStartup(typeof(Startup))]
-
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "Web.config", Watch = true)]
+[assembly: OwinStartup(typeof(Hotel.WEB.Startup))]
 namespace Hotel.WEB
 {
     public class Startup
