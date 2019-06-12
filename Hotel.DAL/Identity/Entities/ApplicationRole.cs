@@ -2,7 +2,5 @@
 
 namespace Hotel.DomainEntities.Identity.Entities
 {
-    public class ApplicationRole : IdentityRole
-    {
-    }
+    public class ApplicationRole : IdentityRole { }
 }

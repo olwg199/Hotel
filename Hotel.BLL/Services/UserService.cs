@@ -40,7 +40,7 @@ namespace Hotel.BLL.Services
                     return new OperationDetails(false, result.Errors.FirstOrDefault(), "");
                 }
 
-                //await _userManager.AddToRoleAsync(user.Id, userDto.Role);
+                await _userManager.AddToRoleAsync(user.Id, "User");
 
                 return new OperationDetails(true, "Регистрация успешно пройдена", "");
             }
