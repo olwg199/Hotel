@@ -25,6 +25,11 @@ namespace Hotel.BLL.Services
             _mapper = mapper;
         }
 
+        public UserDto Get(string id)
+        {
+            return _mapper.Map<UserDto>(_userManager.FindById(id));
+        }
+
         public async Task<OperationDetails> Registration(UserDto userDto)
         {
             ApplicationUser user = await _userManager.FindAsync(userDto.UserName, userDto.Password);

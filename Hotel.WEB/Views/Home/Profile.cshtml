@@ -1,0 +1,60 @@
+﻿@model Hotel.WEB.Models.Home.ProfileVm
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<div>
+    <hr />
+    <h5>Профиль</h5>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="@Html.DisplayFor(model => model.Email)">
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">
+                        @Html.DisplayNameFor(model => model.UserName)
+                    </span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="@Html.DisplayFor(model => model.UserName)">
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <input type="submit" value="Сохранить" class="btn btn-success w-100" />
+        </div>
+    </div>
+
+    <hr />
+    
+    <h5>Бронирования</h5>
+    
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        @Ajax.ActionLink("Все", "List",
+            new {controller="Reservation", area=""}, new AjaxOptions{UpdateTargetId = "Reservations"},
+            new {@class= "btn btn-secondary" })
+
+        @Ajax.ActionLink("Новые", "List",
+            new {controller="Reservation", area=""}, new AjaxOptions{UpdateTargetId = "Reservations"},
+            new {@class= "btn btn-secondary" })
+
+        @Ajax.ActionLink("Отмененные", "List",
+            new {controller="Reservation", area=""}, new AjaxOptions{UpdateTargetId = "Reservations"},
+            new {@class= "btn btn-secondary" })
+
+    </div>
+
+    
+    <div id="Reservations"></div>
+    @*@Html.Partial("_ReservationList", Model.Reservations)*@
+</div>

@@ -14,7 +14,7 @@ namespace Hotel.WEB
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Account/Login"),
+                LoginPath = new PathString("/Profile/Login"),
             });
         }
     }

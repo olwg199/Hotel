@@ -38,6 +38,7 @@ namespace Hotel.DomainEntities.Repositories
         public void Create(Reservation item)
         {
             item.RoomType = _context.RoomTypes.Find(item.RoomType.Id);
+            item.Client = _context.Users.Find(item.ClientId);
             _context.Reservations.Add(item);
             _context.SaveChanges();
         }

@@ -25,6 +25,10 @@ namespace Hotel.Web.Models.Reservation
         [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DepartureDate { get; set; }
 
+        [Required]
+        [Display(Name = "Стоимость")]
+        public decimal TotalPrice { get; set; }
+
         public IEnumerable<SelectListItem> RoomTypes { get; set; }
     }
 }

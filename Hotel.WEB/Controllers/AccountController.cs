@@ -33,17 +33,17 @@ namespace Hotel.Web.Controllers
             }
         }
 
-        // GET: Account/Login
+        // GET: Profile/Login
         [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
 
-        // POST: Account/Login
+        // POST: Profile/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginVm model)
+        public async Task<ActionResult> Login(LoginVm model, string returnUrl)
         {
             if (!ModelState.IsValid)
             {
@@ -65,18 +65,18 @@ namespace Hotel.Web.Controllers
                     IsPersistent = true
                 }, claim);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToLocal(returnUrl);
             }
         }
 
-        // GET: Account/Registration
+        // GET: Profile/Registration
         [HttpGet]
         public ActionResult Registration()
         {
             return View();
         }
 
-        // Post: Account/Registration
+        // Post: Profile/Registration
         [HttpPost]
         public async Task<ActionResult> Registration(RegistrationVm model)
         {
@@ -109,11 +109,20 @@ namespace Hotel.Web.Controllers
             }
         }
 
-        // GET: Account/LogOff
+        // GET: Profile/LogOff
         [HttpPost]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Home");
+        }
+
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
             return RedirectToAction("Index", "Home");
         }
     }

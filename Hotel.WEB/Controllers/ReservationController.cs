@@ -8,17 +8,19 @@ using Hotel.BLL.DTO;
 using Hotel.BLL.Interfaces;
 using Hotel.Web.Models.Reservation;
 using Hotel.Web.Models.Shared;
+using Hotel.WEB.Models.Reservation;
 using Microsoft.AspNet.Identity;
 
 namespace Hotel.Web.Controllers
 {
-    public class ReservarionController : Controller
+    [Authorize(Roles = "User, Manager")]
+    public class ReservationController : Controller
     {
         private IService<RoomTypeDto> _roomTypeService;
         private IService<ReservationDto> _reservationService;
         private IMapper _mapper;
 
-        public ReservarionController(IService<RoomTypeDto> roomTypeService, IService<ReservationDto> reservationService, IMapper mapper)
+        public ReservationController(IService<RoomTypeDto> roomTypeService, IService<ReservationDto> reservationService, IMapper mapper)
         {
             _roomTypeService = roomTypeService;
             _reservationService = reservationService;
@@ -31,7 +33,7 @@ namespace Hotel.Web.Controllers
         {
             CreateReservationVm model = new CreateReservationVm();
             model.RoomType = _mapper.Map<RoomTypeVm>(_roomTypeService.Get(id));
-            model.RoomTypes = new SelectList(_roomTypeService.GetAll(), "Id", "Name");
+            model.TotalPrice = (DepartureDate - ArrivalDate).Days * model.RoomType.Price;
             return View(model);
         }
 
@@ -39,9 +41,9 @@ namespace Hotel.Web.Controllers
         [HttpPost]
         public ActionResult Create(CreateReservationVm model)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid && model.TotalPrice != 0M)
             {
-                model.RoomTypes = new SelectList(_roomTypeService.GetAll(), "Id", "Name");
+                model.RoomType = _mapper.Map<RoomTypeVm>(_roomTypeService.Get(model.RoomType.Id));
                 return View(model);
             }
 
@@ -55,16 +57,8 @@ namespace Hotel.Web.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            IEnumerable<ReservationDto> reservations = _reservationService.GetAll();
-            return View();
-        }
-
-        // GET: Reservarion/GetPartialRoomType
-        [HttpPost]
-        public ActionResult GetPartialRoomType(int id)
-        {
-            var model = _mapper.Map<RoomTypeVm>(_roomTypeService.Get(id));
-            return PartialView("_RoomType", model);
+            IEnumerable<ReservationVm> model = _reservationService.GetAll().Select(x => _mapper.Map<ReservationVm>(x));
+            return PartialView("_ReservationList", model);
         }
     }
 }

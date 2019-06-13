@@ -17,8 +17,5 @@ namespace Hotel.Web.Models.Account
         [DataType(DataType.Password)]
         [Display(Name = "Пароль")]
         public string Password { get; set; }
-
-        [Display(Name = "Запомнить меня")]
-        public bool RememberMe { get; set; }
     }
 }

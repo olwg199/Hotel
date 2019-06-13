@@ -5,6 +5,7 @@ using Hotel.Web.Areas.Admin.Models;
 using Hotel.Web.Models.Account;
 using Hotel.Web.Models.Reservation;
 using Hotel.Web.Models.Shared;
+using Hotel.WEB.Models.Home;
 
 namespace Hotel.Web.Infrastructure
 {
@@ -12,6 +13,9 @@ namespace Hotel.Web.Infrastructure
     {
         public WebMappingProfile()
         {
+            CreateMap<UserDto, ProfileVm>();
+            CreateMap<ProfileVm, UserDto>();
+
             CreateMap<RegistrationVm, UserDto>();
             
             CreateMap<CreateReservationVm, ReservationDto>();

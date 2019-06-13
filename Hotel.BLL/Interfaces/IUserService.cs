@@ -11,6 +11,8 @@ namespace Hotel.BLL.Interfaces
 {
     public interface IUserService : IDisposable
     {
+        UserDto Get(string id);
+
         Task<OperationDetails> Registration(UserDto userDto);
 
         Task<ClaimsIdentity> Login(string userName, string password);

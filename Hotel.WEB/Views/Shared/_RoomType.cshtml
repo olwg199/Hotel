@@ -1,6 +1,7 @@
 ﻿@model Hotel.Web.Models.Shared.RoomTypeVm
 
-<div class="card m-2">
+<div class="card mt-2 mb-2">
+    @Html.Hidden("RoomType.Id", Model.Id)
     <div class="row no-gutters">
         <div class="col-lg-5">
             <img src="@Model.PathToImage" class="card-img w-100" alt="">

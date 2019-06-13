@@ -71,7 +71,7 @@ namespace Hotel.DomainEntities.EF
             {
                 Name = "Премиум",
                 Description = "Отличный номер",
-                Price = 199.99M,
+                Price = 200M,
                 PathToImage = "/Content/img/1.jpg",
                 Conveniences = new List<Convenience> { conv1, conv2, conv3 }
             };
@@ -80,7 +80,7 @@ namespace Hotel.DomainEntities.EF
             {
                 Name = "Cтандарт",
                 Description = "Отличный номер",
-                Price = 99.99M,
+                Price = 100M,
                 PathToImage = "/Content/img/2.jpg",
                 Conveniences = new List<Convenience> { conv4, conv5, conv3 }
             };
@@ -89,7 +89,7 @@ namespace Hotel.DomainEntities.EF
             {
                 Name = "Люкс",
                 Description = "Отличный номер",
-                Price = 150.99M,
+                Price = 150M,
                 PathToImage = "/Content/img/3.jpg",
                 Conveniences = new List<Convenience> { conv1, conv2, conv3, conv4 }
             };
