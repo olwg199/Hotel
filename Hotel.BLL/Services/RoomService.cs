@@ -5,47 +5,12 @@ using Hotel.DomainEntities.Entities;
 using Hotel.DomainEntities.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
+using Hotel.BLL.Services.Generic;
 
 namespace Hotel.BLL.Services
 {
-    public class RoomService : IService<RoomDto>
+    public class RoomCrudService : GenericCrudService<RoomDto, Room>
     {
-        private readonly IRepository<Room> _repository;
-        private readonly IMapper _mapper;
-
-        public RoomService(IRepository<Room> repository, IMapper mapper)
-        {
-            _repository = repository;
-            _mapper = mapper;
-        }
-
-        public RoomDto Get(int id)
-        {
-            return _mapper.Map<Room, RoomDto>(_repository.Get(id));
-        }
-
-        public IEnumerable<RoomDto> GetAll()
-        {
-            return _repository.GetAll().Select(r => _mapper.Map<Room, RoomDto>(r));
-        }
-
-        public void Create(RoomDto item)
-        {
-            Room room = _mapper.Map<RoomDto, Room>(item);
-
-            _repository.Create(room);
-        }
-
-        public void Update(RoomDto item)
-        {
-            Room room = _mapper.Map<RoomDto, Room>(item);
-
-            _repository.Update(room);
-        }
-
-        public void Delete(int id)
-        {
-            _repository.Delete(id);
-        }
+        public RoomCrudService(IRepository<Room> repository, IMapper mapper) : base(repository, mapper) { }
     }
 }

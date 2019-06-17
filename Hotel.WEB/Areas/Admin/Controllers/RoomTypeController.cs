@@ -13,14 +13,14 @@ namespace Hotel.Web.Areas.Admin.Controllers
 {
     public class RoomTypeController : Controller
     {
-        private IService<RoomTypeDto> _roomTypeService;
-        private IService<ConvenienceDto> _convenienceService;
+        private ICrudService<RoomTypeDto> _roomTypeCrudService;
+        private ICrudService<ConvenienceDto> _convenienceCrudService;
         private IMapper _mapper;
 
-        public RoomTypeController(IService<RoomTypeDto> roomTypeService, IService<ConvenienceDto> convenienceService, IMapper mapper)
+        public RoomTypeController(ICrudService<RoomTypeDto> roomTypeCrudService, ICrudService<ConvenienceDto> convenienceCrudService, IMapper mapper)
         {
-            _roomTypeService = roomTypeService;
-            _convenienceService = convenienceService;
+            _roomTypeCrudService = roomTypeCrudService;
+            _convenienceCrudService = convenienceCrudService;
             _mapper = mapper;
         }
         
@@ -28,7 +28,7 @@ namespace Hotel.Web.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            return View(_roomTypeService.GetAll());
+            return View(_roomTypeCrudService.GetAll());
         }
 
         // GET: Admin/RoomType/Create
@@ -36,7 +36,7 @@ namespace Hotel.Web.Areas.Admin.Controllers
         public ActionResult Create()
         {
             RoomTypeDetailsVm model = new RoomTypeDetailsVm();
-            model.AvailableConveniences = new SelectList(_convenienceService.GetAll(), "Id", "Name");
+            model.AvailableConveniences = new SelectList(_convenienceCrudService.GetAll(), "Id", "Name");
 
             
             return View("Details", model);
@@ -48,7 +48,7 @@ namespace Hotel.Web.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                model.AvailableConveniences = new SelectList(_convenienceService.GetAll(), "Id", "Name");
+                model.AvailableConveniences = new SelectList(_convenienceCrudService.GetAll(), "Id", "Name");
                 return View("Details", model);
             }
 
@@ -56,7 +56,7 @@ namespace Hotel.Web.Areas.Admin.Controllers
             type.PathToImage = "/Content/img/" + image.FileName;
             image.SaveAs(Server.MapPath(type.PathToImage));
 
-            _roomTypeService.Create(type);
+            _roomTypeCrudService.Create(type);
 
             return RedirectToAction("List");
         }
@@ -65,9 +65,9 @@ namespace Hotel.Web.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            RoomTypeDto type = _roomTypeService.Get(id);
+            RoomTypeDto type = _roomTypeCrudService.Get(id);
             RoomTypeDetailsVm model = _mapper.Map<RoomTypeDetailsVm>(type);
-            model.AvailableConveniences = new MultiSelectList(_convenienceService.GetAll(), "Id", "Name", type.Conveniences);
+            model.AvailableConveniences = new MultiSelectList(_convenienceCrudService.GetAll(), "Id", "Name", type.Conveniences);
 
             return View("Details", model);
         }
@@ -78,7 +78,7 @@ namespace Hotel.Web.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                model.AvailableConveniences = new SelectList(_convenienceService.GetAll(), "Id", "Name");
+                model.AvailableConveniences = new SelectList(_convenienceCrudService.GetAll(), "Id", "Name");
                 return View("Details", model);
             }
             
@@ -93,7 +93,7 @@ namespace Hotel.Web.Areas.Admin.Controllers
                 FileInfo file = directory.EnumerateFiles().FirstOrDefault(x => x.Name == model.Name);
             }
 
-            _roomTypeService.Update(type);
+            _roomTypeCrudService.Update(type);
 
             return RedirectToAction("List");
         }
@@ -102,7 +102,7 @@ namespace Hotel.Web.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            _roomTypeService.Delete(id);
+            _roomTypeCrudService.Delete(id);
             return RedirectToAction("List");
         }
     }

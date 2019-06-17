@@ -13,14 +13,14 @@ namespace Hotel.Web.Areas.Admin.Controllers
     public class RoomController : Controller
     {
 
-        private readonly IService<RoomDto> _roomService;
-        private readonly IService<RoomTypeDto> _roomTypeService;
+        private readonly ICrudService<RoomDto> _roomCrudService;
+        private readonly ICrudService<RoomTypeDto> _roomTypeCrudService;
         private readonly IMapper _mapper;
 
-        public RoomController(IService<RoomDto> roomService, IService<RoomTypeDto> roomTypeService, IMapper mapper)
+        public RoomController(ICrudService<RoomDto> roomCrudService, ICrudService<RoomTypeDto> roomTypeCrudService, IMapper mapper)
         {
-            _roomService = roomService;
-            _roomTypeService = roomTypeService;
+            _roomCrudService = roomCrudService;
+            _roomTypeCrudService = roomTypeCrudService;
             _mapper = mapper;
         }
 
@@ -28,7 +28,8 @@ namespace Hotel.Web.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            return View(_roomService.GetAll());
+            var model = _roomCrudService.GetAll().Select(x => _mapper.Map<RoomDetailsVm>(x));
+            return View("List", model);
         }
 
         // GET: Admin/Room/Create
@@ -36,7 +37,7 @@ namespace Hotel.Web.Areas.Admin.Controllers
         public ActionResult Create()
         {
             RoomDetailsVm model = new RoomDetailsVm();
-            model.RoomTypes = new SelectList(_roomTypeService.GetAll(), "Id", "Name");
+            model.RoomTypes = new SelectList(_roomTypeCrudService.GetAll(), "Id", "Name");
 
             return View("Details", model);
         }
@@ -47,11 +48,11 @@ namespace Hotel.Web.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                model.RoomTypes = new SelectList(_roomTypeService.GetAll(), "Id", "Name");
+                model.RoomTypes = new SelectList(_roomTypeCrudService.GetAll(), "Id", "Name");
                 return View("Details", model);
             }
 
-            _roomService.Create(_mapper.Map<RoomDetailsVm, RoomDto>(model));
+            _roomCrudService.Create(_mapper.Map<RoomDetailsVm, RoomDto>(model));
 
             return RedirectToAction("List");
         }
@@ -60,8 +61,8 @@ namespace Hotel.Web.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            RoomDetailsVm model = _mapper.Map<RoomDetailsVm>(_roomService.Get(id));
-            model.RoomTypes = new SelectList(_roomTypeService.GetAll(), "Id", "Name");
+            RoomDetailsVm model = _mapper.Map<RoomDetailsVm>(_roomCrudService.Get(id));
+            model.RoomTypes = new SelectList(_roomTypeCrudService.GetAll(), "Id", "Name");
 
             return View("Details", model);
         }
@@ -72,11 +73,11 @@ namespace Hotel.Web.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                model.RoomTypes = new SelectList(_roomTypeService.GetAll(), "Id", "Name");
+                model.RoomTypes = new SelectList(_roomTypeCrudService.GetAll(), "Id", "Name");
                 return View("Details", model);
             }
 
-            _roomService.Update(_mapper.Map<RoomDetailsVm, RoomDto>(model));
+            _roomCrudService.Update(_mapper.Map<RoomDetailsVm, RoomDto>(model));
 
             return RedirectToAction("List");
         }
@@ -85,7 +86,7 @@ namespace Hotel.Web.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            _roomService.Delete(id);
+            _roomCrudService.Delete(id);
 
             return RedirectToAction("List");
         }

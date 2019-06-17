@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Hotel.DomainEntities.Interfaces;
 
 namespace Hotel.DomainEntities.Entities
 {
-    public class Status
+    public class Status : IEntity
     {
         public int Id { get; set; }
 

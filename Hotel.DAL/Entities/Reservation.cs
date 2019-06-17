@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Hotel.DomainEntities.Identity.Entities;
+using Hotel.DomainEntities.Interfaces;
 
 namespace Hotel.DomainEntities.Entities
 {
-    public class Reservation
+    public class Reservation : IEntity
     {
         public int Id { get; set; }
 

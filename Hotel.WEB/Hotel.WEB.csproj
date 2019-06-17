@@ -350,6 +350,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\Models\ConvenienceDetailsVm.cs" />
     <Compile Include="Infrastructure\HandleExceptionsAttribute.cs" />
     <Compile Include="Models\Home\ProfileVm.cs" />
     <Compile Include="Models\Reservation\ReservationVm.cs" />

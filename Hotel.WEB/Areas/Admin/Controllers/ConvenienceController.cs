@@ -6,17 +6,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Hotel.WEB.Areas.Admin.Models;
 
 namespace Hotel.Web.Areas.Admin.Controllers
 {
     public class ConvenienceController : Controller
     {
-        private IService<ConvenienceDto> _service;
-        private IMapper _mapper;
+        private readonly ICrudService<ConvenienceDto> _crudService;
+        private readonly IMapper _mapper;
 
-        public ConvenienceController(IService<ConvenienceDto> service, IMapper mapper)
+        public ConvenienceController(ICrudService<ConvenienceDto> crudService, IMapper mapper)
         {
-            _service = service;
+            _crudService = crudService;
             _mapper = mapper;
         }
 
@@ -24,7 +25,8 @@ namespace Hotel.Web.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            return View(_service.GetAll());
+            var model = _crudService.GetAll().Select(x => _mapper.Map<ConvenienceDetailsVm>(x));
+            return View("List", model);
         }
 
         // GET: Admin/Convenience/Create
@@ -36,14 +38,14 @@ namespace Hotel.Web.Areas.Admin.Controllers
 
         // POST: Admin/Convenience/Create
         [HttpPost]
-        public ActionResult Create(ConvenienceDto model)
+        public ActionResult Create(ConvenienceDetailsVm model)
         {
             if (!ModelState.IsValid)
             {
                 return View("Details", model);
             }
 
-            _service.Create(model);
+            _crudService.Create(_mapper.Map<ConvenienceDto>(model));
 
             return RedirectToAction("List");
         }
@@ -52,19 +54,20 @@ namespace Hotel.Web.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            return View("Details", _service.Get(id));
+            var model = _mapper.Map<ConvenienceDetailsVm>(_crudService.Get(id));
+            return View("Details", model);
         }
 
         // POST: Admin/Convenience/Edit
         [HttpPost]
-        public ActionResult Edit(ConvenienceDto model)
+        public ActionResult Edit(ConvenienceDetailsVm model)
         {
             if (!ModelState.IsValid)
             {
                 return View("Details", model);
             }
 
-            _service.Update(model);
+            _crudService.Update(_mapper.Map<ConvenienceDto>(model));
 
             return RedirectToAction("List");
         }
@@ -73,8 +76,19 @@ namespace Hotel.Web.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            _service.Delete(id);
+            _crudService.Delete(id);
             return RedirectToAction("List");
+        }
+
+        // GET: Admin/Convenience/Delete/id
+        [HttpGet]
+        public ActionResult Search(string searchPattern)
+        {
+            ICollection<ConvenienceDto> model = new List<ConvenienceDto>();
+
+            //_crudService.Search(searchPattern, out model);
+
+            return RedirectToAction("List", model);
         }
     }
 }

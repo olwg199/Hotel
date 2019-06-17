@@ -14,8 +14,8 @@ namespace Hotel.Web.Controllers
 {
     public class AccountController : Controller
     {
-        private IUserService _userService;
-        private IMapper _mapper;
+        private readonly IUserService _userService;
+        private readonly IMapper _mapper;
 
         public AccountController() { }
 

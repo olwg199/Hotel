@@ -16,14 +16,14 @@ namespace Hotel.Web.Controllers
     [Authorize(Roles = "User, Manager")]
     public class ReservationController : Controller
     {
-        private IService<RoomTypeDto> _roomTypeService;
-        private IService<ReservationDto> _reservationService;
+        private ICrudService<RoomTypeDto> _roomTypeCrudService;
+        private ICrudService<ReservationDto> _reservationCrudService;
         private IMapper _mapper;
 
-        public ReservationController(IService<RoomTypeDto> roomTypeService, IService<ReservationDto> reservationService, IMapper mapper)
+        public ReservationController(ICrudService<RoomTypeDto> roomTypeCrudService, ICrudService<ReservationDto> reservationCrudService, IMapper mapper)
         {
-            _roomTypeService = roomTypeService;
-            _reservationService = reservationService;
+            _roomTypeCrudService = roomTypeCrudService;
+            _reservationCrudService = reservationCrudService;
             _mapper = mapper;
         }
 
@@ -32,7 +32,7 @@ namespace Hotel.Web.Controllers
         public ActionResult Create(int id, DateTime ArrivalDate, DateTime DepartureDate)
         {
             CreateReservationVm model = new CreateReservationVm();
-            model.RoomType = _mapper.Map<RoomTypeVm>(_roomTypeService.Get(id));
+            model.RoomType = _mapper.Map<RoomTypeVm>(_roomTypeCrudService.Get(id));
             model.TotalPrice = (DepartureDate - ArrivalDate).Days * model.RoomType.Price;
             return View(model);
         }
@@ -43,13 +43,13 @@ namespace Hotel.Web.Controllers
         {
             if (!ModelState.IsValid && model.TotalPrice != 0M)
             {
-                model.RoomType = _mapper.Map<RoomTypeVm>(_roomTypeService.Get(model.RoomType.Id));
+                model.RoomType = _mapper.Map<RoomTypeVm>(_roomTypeCrudService.Get(model.RoomType.Id));
                 return View(model);
             }
 
             ReservationDto reservation = _mapper.Map<ReservationDto>(model);
             reservation.ClientId = this.HttpContext.User.Identity.GetUserId();
-            _reservationService.Create(reservation);
+            _reservationCrudService.Create(reservation);
             return RedirectToAction("Index", "Home");
         }
 
@@ -57,7 +57,7 @@ namespace Hotel.Web.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            IEnumerable<ReservationVm> model = _reservationService.GetAll().Select(x => _mapper.Map<ReservationVm>(x));
+            IEnumerable<ReservationVm> model = _reservationCrudService.GetAll().Select(x => _mapper.Map<ReservationVm>(x));
             return PartialView("_ReservationList", model);
         }
     }

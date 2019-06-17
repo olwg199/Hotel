@@ -1,14 +1,13 @@
-﻿@model IEnumerable<Hotel.BLL.DTO.RoomDto>
+﻿@model IEnumerable<Hotel.Web.Areas.Admin.Models.RoomDetailsVm>
 
-@{
-    ViewBag.Title = "List";
-}
+<div class="input-group">
+    <input type="text" class="form-control" placeholder="Поиск">
+    <div class="input-group-append" id="button-addon4">
+        <button class="btn btn-outline-secondary" type="button">Поиск</button>
+        @Html.ActionLink("Создать", "Create", new { controller = "Room" }, new { @class = "btn btn-outline-success" })
+    </div>
+</div>
 
-<h2>List</h2>
-
-<p>
-    @Html.ActionLink("Create", "Create", new{controller = "Room", area="Admin"}, new {@class="btn btn-success"})
-</p>
 <table class="table">
     <tr>
         <th>
@@ -20,7 +19,7 @@
         <th>
             @Html.DisplayNameFor(model => model.RoomTypeName)
         </th>
-        <th></th>
+        <th>Действия</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -35,8 +34,8 @@
             @Html.DisplayFor(modelItem => item.RoomTypeName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            @Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
         </td>
     </tr>
 }

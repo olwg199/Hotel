@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Hotel.DomainEntities.Interfaces;
 
 namespace Hotel.DomainEntities.Entities
 {
-    public class RoomType
+    public class RoomType : IEntity
     {
         public int Id { get; set; }
 

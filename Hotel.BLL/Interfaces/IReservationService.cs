@@ -2,7 +2,7 @@
 
 namespace Hotel.BLL.Interfaces
 {
-    public interface IReservationService : IService<ReservationDto>
+    public interface IReservationCrudService : ICrudService<ReservationDto>
     {
         
     }

@@ -2,7 +2,7 @@
 
 namespace Hotel.BLL.Interfaces
 {
-    public interface IService<T>
+    public interface ICrudService<T>
     {
         T Get(int id);
 

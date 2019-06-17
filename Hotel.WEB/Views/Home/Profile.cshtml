@@ -39,7 +39,7 @@
     
     <h5>Бронирования</h5>
     
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
         @Ajax.ActionLink("Все", "List",
             new {controller="Reservation", area=""}, new AjaxOptions{UpdateTargetId = "Reservations"},
             new {@class= "btn btn-secondary" })
@@ -55,6 +55,7 @@
     </div>
 
     
-    <div id="Reservations"></div>
-    @*@Html.Partial("_ReservationList", Model.Reservations)*@
+    <div id="Reservations">
+        @Html.Partial("_ReservationList", Model.Reservations)
+    </div>
 </div>

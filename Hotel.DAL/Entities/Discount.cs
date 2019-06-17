@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Hotel.DomainEntities.Interfaces;
 
 namespace Hotel.DomainEntities.Entities
 {
-    public class Discount
+    public class Discount : IEntity
     {
         public int Id { get; set; }
 

@@ -15,15 +15,15 @@ namespace Hotel.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IService<ReservationDto> _reservationService;
-        private readonly IService<RoomTypeDto> _roomTypeService;
+        private readonly ICrudService<ReservationDto> _reservationCrudService;
+        private readonly ICrudService<RoomTypeDto> _roomTypeCrudService;
         private readonly IUserService _userService;
         private readonly IMapper _mapper;
 
-        public HomeController(IService<RoomTypeDto> roomTypeService, IUserService userService, IService<ReservationDto> reservationService, IMapper mapper)
+        public HomeController(ICrudService<RoomTypeDto> roomTypeCrudService, IUserService userService, ICrudService<ReservationDto> reservationCrudService, IMapper mapper)
         {
-            _reservationService = reservationService;
-            _roomTypeService = roomTypeService;
+            _reservationCrudService = reservationCrudService;
+            _roomTypeCrudService = roomTypeCrudService;
             _userService = userService;
             _mapper = mapper;
         }
@@ -31,7 +31,7 @@ namespace Hotel.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View(_roomTypeService.GetAll().Select(x => _mapper.Map<RoomTypeVm>(x)));
+            return View(_roomTypeCrudService.GetAll().Select(x => _mapper.Map<RoomTypeVm>(x)));
         }
 
         // GET: Home
@@ -47,7 +47,7 @@ namespace Hotel.Web.Controllers
 
             if (this.HttpContext.User.IsInRole("Manager"))
             {
-                profile.Reservations = _reservationService.GetAll().Select(x => _mapper.Map<ReservationVm>(x));
+                profile.Reservations = _reservationCrudService.GetAll().Select(x => _mapper.Map<ReservationVm>(x));
                 return View("Profile", profile);
             }
 
