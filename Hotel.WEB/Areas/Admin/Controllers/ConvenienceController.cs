@@ -7,26 +7,29 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Hotel.WEB.Areas.Admin.Models;
+using PagedList;
 
 namespace Hotel.Web.Areas.Admin.Controllers
 {
     public class ConvenienceController : Controller
     {
-        private readonly ICrudService<ConvenienceDto> _crudService;
+        private readonly IConvenienceService _service;
         private readonly IMapper _mapper;
 
-        public ConvenienceController(ICrudService<ConvenienceDto> crudService, IMapper mapper)
+        public ConvenienceController(IConvenienceService service, IMapper mapper)
         {
-            _crudService = crudService;
+            _service = service;
             _mapper = mapper;
         }
 
         // GET: Admin/Convenience/List
         [HttpGet]
-        public ActionResult List()
+        public ActionResult List(int? page, string sortBy)
         {
-            var model = _crudService.GetAll().Select(x => _mapper.Map<ConvenienceDetailsVm>(x));
-            return View("List", model);
+            sortBy = string.IsNullOrEmpty(sortBy) ? "" : sortBy;
+            ViewBag.SortParameter = sortBy;
+            var model = _service.GetAll(sortBy).Select(x => _mapper.Map<ConvenienceDetailsVm>(x));
+            return View("List", model.ToPagedList(page ?? 1, 3));
         }
 
         // GET: Admin/Convenience/Create
@@ -45,7 +48,7 @@ namespace Hotel.Web.Areas.Admin.Controllers
                 return View("Details", model);
             }
 
-            _crudService.Create(_mapper.Map<ConvenienceDto>(model));
+            _service.Create(_mapper.Map<ConvenienceDto>(model));
 
             return RedirectToAction("List");
         }
@@ -54,7 +57,7 @@ namespace Hotel.Web.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var model = _mapper.Map<ConvenienceDetailsVm>(_crudService.Get(id));
+            var model = _mapper.Map<ConvenienceDetailsVm>(_service.Get(id));
             return View("Details", model);
         }
 
@@ -67,7 +70,7 @@ namespace Hotel.Web.Areas.Admin.Controllers
                 return View("Details", model);
             }
 
-            _crudService.Update(_mapper.Map<ConvenienceDto>(model));
+            _service.Update(_mapper.Map<ConvenienceDto>(model));
 
             return RedirectToAction("List");
         }
@@ -76,19 +79,8 @@ namespace Hotel.Web.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            _crudService.Delete(id);
+            _service.Delete(id);
             return RedirectToAction("List");
-        }
-
-        // GET: Admin/Convenience/Delete/id
-        [HttpGet]
-        public ActionResult Search(string searchPattern)
-        {
-            ICollection<ConvenienceDto> model = new List<ConvenienceDto>();
-
-            //_crudService.Search(searchPattern, out model);
-
-            return RedirectToAction("List", model);
         }
     }
 }

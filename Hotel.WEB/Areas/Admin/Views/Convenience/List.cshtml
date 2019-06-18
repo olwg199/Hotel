@@ -1,31 +1,43 @@
-﻿@model IEnumerable<Hotel.WEB.Areas.Admin.Models.ConvenienceDetailsVm>
+﻿@using PagedList
+@using PagedList.Mvc
 
-<div class="input-group">
-    <input type="text" class="form-control" placeholder="Поиск">
-    <div class="input-group-append" id="button-addon4">
-        <button class="btn btn-outline-secondary" type="button">Поиск</button>
-        @Html.ActionLink("Создать", "Create", new { controller = "Convenience" }, new { @class = "btn btn-outline-success" })
-    </div>
-</div>
+@model IPagedList<Hotel.WEB.Areas.Admin.Models.ConvenienceDetailsVm>
+
+
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.ActionLink("Name", "List", new { sortBy = string.IsNullOrEmpty(ViewBag.SortParameter) ? "Name" : "" })
         </th>
         <th>Действия</th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Редактировать", "Edit", new { controller="Convenience", id=item.Id }) |
-            @Html.ActionLink("Удалить", "Delete", new { controller = "Convenience", id =item.Id })
-        </td>
-    </tr>
-}
+    @if (Model.Count != 0)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Редактировать", "Edit", new { controller = "Convenience", id = item.Id }) |
+                    @Html.ActionLink("Удалить", "Delete", new { controller = "Convenience", id = item.Id })
+                </td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr class="align-content-center w-100">
+            <th>Извиние, удобства не найдены!</th>
+            <th></th>
+        </tr>
+    }
+    <caption>
+        @Html.ActionLink("Добавить удобство", "Create", new { controller = "Convenience" }, new { @class = "btn btn-outline-success" })
+    </caption>
 
 </table>
+
+@Html.PagedListPager(Model, page => Url.Action("List", new { page, sortBy = ViewBag.SortParameter }))

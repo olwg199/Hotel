@@ -13,7 +13,8 @@ namespace Hotel.Web.Infrastructure
         {
             Bind<IUserService>().To<UserService>();
             Bind<ICrudService<DiscountDto>>().To<DiscountCrudService>();
-            Bind<ICrudService<ConvenienceDto>>().To<ConvenienceService>();
+            Bind<ICrudService<ConvenienceDto>>().To<ConvenienceService>().InSingletonScope();
+            Bind<IConvenienceService>().To<ConvenienceService>();
             Bind<ICrudService<ReservationDto>>().To<ReservationCrudService>();
             Bind<ICrudService<RoomDto>>().To<RoomCrudService>();
             Bind<ICrudService<RoomTypeDto>>().To<RoomTypeCrudService>();

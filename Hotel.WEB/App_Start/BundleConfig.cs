@@ -29,7 +29,8 @@ namespace Hotel.Web.App_Start
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Areas/Admin/Content/css").Include(
-                      "~/Areas/Admin/Content/css/sidebar.css"));
+                      "~/Areas/Admin/Content/css/sidebar.css",
+                      "~/Content/PagedList.css"));
 
             bundles.Add(new ScriptBundle("~/Areas/Admin/Content/js").Include(
                       "~/Areas/Admin/Content/js/sidebar.js",

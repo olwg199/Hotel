@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Hotel.BLL.DTO;
+﻿using Hotel.BLL.DTO;
 
 namespace Hotel.BLL.Interfaces
 {
-    public interface IConvenienceService : IService<ConvenienceDto>
+    public interface IConvenienceService : ICrudService<ConvenienceDto>, ISortService<ConvenienceDto>
     {
+        
     }
 }
