@@ -24,7 +24,7 @@ namespace Hotel.BLL.Infrastructure
 
         public override void Load()
         {
-            Bind<HotelDbContext>().ToSelf().WithConstructorArgument(_connectionString);
+            Bind<HotelDbContext>().ToSelf().InSingletonScope().WithConstructorArgument(_connectionString);
             Bind<IUserStore<ApplicationUser>>().To<UserStore<ApplicationUser>>().WithConstructorArgument("context", Kernel.Get<HotelDbContext>());
             Bind<ApplicationUserManager>().ToSelf();
 
