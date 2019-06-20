@@ -13,17 +13,17 @@ using Microsoft.AspNet.Identity;
 
 namespace Hotel.Web.Controllers
 {
-    [Authorize(Roles = "User, Manager")]
+    [Authorize]
     public class ReservationController : Controller
     {
         private ICrudService<RoomTypeDto> _roomTypeCrudService;
-        private ICrudService<ReservationDto> _reservationCrudService;
+        private IReservationService _reservationService;
         private IMapper _mapper;
 
-        public ReservationController(ICrudService<RoomTypeDto> roomTypeCrudService, ICrudService<ReservationDto> reservationCrudService, IMapper mapper)
+        public ReservationController(ICrudService<RoomTypeDto> roomTypeCrudService, IReservationService reservationService, IMapper mapper)
         {
             _roomTypeCrudService = roomTypeCrudService;
-            _reservationCrudService = reservationCrudService;
+            _reservationService = reservationService;
             _mapper = mapper;
         }
 
@@ -49,15 +49,15 @@ namespace Hotel.Web.Controllers
 
             ReservationDto reservation = _mapper.Map<ReservationDto>(model);
             reservation.ClientId = this.HttpContext.User.Identity.GetUserId();
-            _reservationCrudService.Create(reservation);
+            _reservationService.Create(reservation);
             return RedirectToAction("Index", "Home");
         }
 
         // GET: Reservarion/List/
         [HttpGet]
-        public ActionResult List()
+        public ActionResult List(string userId)
         {
-            IEnumerable<ReservationVm> model = _reservationCrudService.GetAll().Select(x => _mapper.Map<ReservationVm>(x));
+            IEnumerable<ReservationVm> model = _reservationService.GetByUser(userId).Select(x => _mapper.Map<ReservationVm>(x));
             return PartialView("_ReservationList", model);
         }
     }

@@ -5,6 +5,7 @@ namespace Hotel.Web.Models.Account
     public class RegistrationVm
     {
         [Required(ErrorMessage = "Поле электронной почты обязательно для заполнения")]
+        [DataType(DataType.EmailAddress)]
         [Display(Name = "Электронная почта")]
         public string Email { get; set; }
 

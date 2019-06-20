@@ -1,9 +1,10 @@
-﻿using Hotel.BLL.DTO;
+﻿using System.Collections.Generic;
+using Hotel.BLL.DTO;
 
 namespace Hotel.BLL.Interfaces
 {
-    public interface IReservationCrudService : ICrudService<ReservationDto>
+    public interface IReservationService : ICrudService<ReservationDto>
     {
-        
+        IEnumerable<ReservationDto> GetByUser(string userId);
     }
 }

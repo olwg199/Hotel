@@ -33,25 +33,5 @@ namespace Hotel.Web.Controllers
         {
             return View(_roomTypeCrudService.GetAll().Select(x => _mapper.Map<RoomTypeVm>(x)));
         }
-
-        // GET: Home
-        [HttpGet]
-        [Authorize(Roles = "User, Manager")]
-        public ActionResult Profile()
-        {
-            ProfileVm profile = _mapper.Map<ProfileVm>(_userService.Get(this.HttpContext.User.Identity.GetUserId()));
-            if (this.HttpContext.User.IsInRole("User"))
-            {
-                return View("Profile", profile);
-            }
-
-            if (this.HttpContext.User.IsInRole("Manager"))
-            {
-                profile.Reservations = _reservationCrudService.GetAll().Select(x => _mapper.Map<ReservationVm>(x));
-                return View("Profile", profile);
-            }
-
-            return HttpNotFound();
-        }
     }
 }

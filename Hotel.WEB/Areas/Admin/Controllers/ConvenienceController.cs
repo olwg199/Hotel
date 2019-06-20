@@ -11,6 +11,7 @@ using PagedList;
 
 namespace Hotel.Web.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ConvenienceController : Controller
     {
         private readonly IConvenienceService _service;

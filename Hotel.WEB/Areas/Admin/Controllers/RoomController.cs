@@ -10,6 +10,7 @@ using Hotel.Web.Areas.Admin.Models;
 
 namespace Hotel.Web.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RoomController : Controller
     {
 

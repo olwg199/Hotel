@@ -11,10 +11,13 @@ namespace Hotel.WEB.Models.Reservation
     {
         public int Id { get; set; }
 
+        [Display(Name = "Номер")]
         public RoomDto Room { get; set; }
 
+        [Display(Name = "Тип номера")]
         public RoomTypeDto RoomType { get; set; }
 
+        [Display(Name = "Сумма")]
         public decimal TotalPrice { get; set; }
 
         [Display(Name = "Заселение")]
@@ -25,6 +28,7 @@ namespace Hotel.WEB.Models.Reservation
         [DisplayFormat(DataFormatString = "{0:D}")]
         public DateTime DepartureDate { get; set; }
 
+        [Display(Name = "Статус")]
         public StatusDto Status { get; set; }
     }
 }

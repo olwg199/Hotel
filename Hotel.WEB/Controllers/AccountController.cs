@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using Hotel.BLL.DTO;
 using Hotel.BLL.Infrastructure;
 using Hotel.BLL.Interfaces;
@@ -9,19 +10,23 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Hotel.Web.Models.Account;
+using Hotel.WEB.Models.Home;
+using Hotel.WEB.Models.Reservation;
 
 namespace Hotel.Web.Controllers
 {
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
+        private readonly IReservationService _reservationService;
         private readonly IMapper _mapper;
 
         public AccountController() { }
 
-        public AccountController(IUserService userService, IMapper mapper)
+        public AccountController(IUserService userService, IReservationService reservationService, IMapper mapper)
         {
             _userService = userService;
+            _reservationService = reservationService;
             _mapper = mapper;
         }
 
@@ -31,6 +36,25 @@ namespace Hotel.Web.Controllers
             {
                 return HttpContext.GetOwinContext().Authentication;
             }
+        }
+
+        // GET: Profile/Index
+        [HttpGet]
+        public ActionResult Index()
+        {
+            var user = this.HttpContext.User.Identity;
+            ProfileVm profile = _mapper.Map<ProfileVm>(_userService.Get(user.GetUserId()));
+
+            profile.Reservations = _reservationService.GetByUser(user.GetUserId()).Select(x => _mapper.Map<ReservationVm>(x));
+
+            return View("Profile", profile);
+        }
+
+        // GET: Profile/Login
+        [HttpPost]
+        public ActionResult Edit(ProfileVm model)
+        {
+            return View();
         }
 
         // GET: Profile/Login
