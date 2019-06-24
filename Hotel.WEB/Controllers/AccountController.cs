@@ -47,7 +47,7 @@ namespace Hotel.Web.Controllers
 
             profile.Reservations = _reservationService.GetByUser(user.GetUserId()).Select(x => _mapper.Map<ReservationVm>(x));
 
-            return View("Profile", profile);
+            return View("Account", profile);
         }
 
         // GET: Profile/Login

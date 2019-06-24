@@ -20,7 +20,6 @@
                         </span>
                     </div>
                     @Html.TextBoxFor(x => x.Email, new {@class="form-control"})
-                    @*<input type="text" class="form-control" value="@Html.DisplayFor(model => model.Email)">*@
                 </div>
             </div>
 
@@ -32,7 +31,6 @@
                         </span>
                     </div>
                     @Html.TextBoxFor(x=>x.UserName, new {@class="form-control"})
-                    @*<input type="text" class="form-control" value="@Html.DisplayFor(model => model.UserName)">*@
                 </div>
             </div>
 
@@ -51,7 +49,7 @@
             new {controller = "Reservation", area = "", userId = User.Identity.GetUserId()}, new AjaxOptions {UpdateTargetId = "Reservations"},
             new {@class = "btn btn-secondary"})
 
-        @Ajax.ActionLink("Новые", "List",
+        @Ajax.ActionLink("Актуальные", "List",
             new {controller = "Reservation", area = "", userId = User.Identity.GetUserId() }, new AjaxOptions {UpdateTargetId = "Reservations"},
             new {@class = "btn btn-secondary"})
 

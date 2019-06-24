@@ -26,8 +26,8 @@
             @Html.DisplayFor(modelItem => item.TotalPrice)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Save", new { id = item.Id }) |
-            @Html.ActionLink("Отменить", "Cancel", new { id = item.Id }, new {@class="btn btn-sm btn-danger"})
+            @Html.ActionLink("Edit", "Save", new { id = item.Id, controller="Reservation" }) |
+            @Html.ActionLink("Отменить", "Cancel", new { id = item.Id, controller = "Reservation" }, new {@class="btn btn-sm btn-danger"})
         </td>
     </tr>
 }

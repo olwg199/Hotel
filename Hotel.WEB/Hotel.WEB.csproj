@@ -404,7 +404,7 @@
     <Content Include="Views\Account\Registration.cshtml" />
     <Content Include="Views\Reservation\Create.cshtml" />
     <Content Include="Views\Shared\_RoomType.cshtml" />
-    <Content Include="Views\Account\Profile.cshtml" />
+    <Content Include="Views\Account\Account.cshtml" />
     <Content Include="Views\Shared\_ReservationList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -39,8 +39,10 @@ namespace Hotel.DomainEntities.Entities
         [Required]
         public DateTime DepartureDate { get; set; }
 
-        public int? StatusId { get; set; }
+        public int StatusId { get; set; }
 
-        public Status Status { get; set; }
+        public bool IsCancelled { get; set; }
+
+        public string Note { get; set; }
     }
 }

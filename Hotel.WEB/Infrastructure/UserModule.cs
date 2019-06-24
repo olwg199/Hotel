@@ -19,7 +19,6 @@ namespace Hotel.Web.Infrastructure
             Bind<ICrudService<ReservationDto>>().To<ReservationService>();
             Bind<ICrudService<RoomDto>>().To<RoomCrudService>();
             Bind<ICrudService<RoomTypeDto>>().To<RoomTypeCrudService>();
-            Bind<ICrudService<StatusDto>>().To<StatusCrudService>();
             Bind<IMapper>().ToConstant(AutoMapperConfig.InitializeAutoMapper().CreateMapper());
         }
     }

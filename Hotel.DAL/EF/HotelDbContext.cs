@@ -29,8 +29,6 @@ namespace Hotel.DomainEntities.EF
 
         public DbSet<RoomType> RoomTypes { get; set; }
 
-        public DbSet<Status> Statuses { get; set; }
-
     }
 
     internal class HotelDbInitializer : CreateDatabaseIfNotExists<HotelDbContext>

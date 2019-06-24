@@ -60,7 +60,6 @@
     <Compile Include="Entities\Reservation.cs" />
     <Compile Include="Entities\Room.cs" />
     <Compile Include="Entities\RoomType.cs" />
-    <Compile Include="Entities\Status.cs" />
     <Compile Include="Identity\Entities\ApplicationRole.cs" />
     <Compile Include="Identity\Entities\ApplicationUser.cs" />
     <Compile Include="Identity\ApplicationRoleManager.cs" />
@@ -73,7 +72,6 @@
     <Compile Include="Repositories\ReservationRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
     <Compile Include="Repositories\RoomTypeRepository.cs" />
-    <Compile Include="Repositories\StatusRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

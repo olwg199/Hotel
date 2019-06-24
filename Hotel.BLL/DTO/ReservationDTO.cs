@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hotel.BLL.Infrastructure;
 using Hotel.BLL.Interfaces;
 
 namespace Hotel.BLL.DTO
@@ -25,6 +26,6 @@ namespace Hotel.BLL.DTO
 
         public DateTime DepartureDate { get; set; }
 
-        public StatusDto Status { get; set; }
+        public Status Status { get; set; }
     }
 }

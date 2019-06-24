@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using Hotel.BLL.DTO;
+using Hotel.BLL.Infrastructure;
 using Hotel.BLL.Interfaces;
 using Hotel.Web.Models.Reservation;
 using Hotel.Web.Models.Shared;
@@ -55,7 +56,7 @@ namespace Hotel.Web.Controllers
 
         // GET: Reservarion/List/
         [HttpGet]
-        public ActionResult List(string userId)
+        public ActionResult List(string userId, Status status)
         {
             IEnumerable<ReservationVm> model = _reservationService.GetByUser(userId).Select(x => _mapper.Map<ReservationVm>(x));
             return PartialView("_ReservationList", model);

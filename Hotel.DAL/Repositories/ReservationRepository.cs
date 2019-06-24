@@ -32,7 +32,7 @@ namespace Hotel.DomainEntities.Repositories
 
         public IEnumerable<Reservation> Find(Func<Reservation, bool> predicate)
         {
-            return  _context.Reservations.Where(predicate);
+            return  _context.Reservations.Where(predicate).ToList();
         }
 
         public void Create(Reservation item)

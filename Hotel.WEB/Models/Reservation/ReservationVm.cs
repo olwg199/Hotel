@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Hotel.BLL.Infrastructure;
 
 namespace Hotel.WEB.Models.Reservation
 {
@@ -29,6 +30,6 @@ namespace Hotel.WEB.Models.Reservation
         public DateTime DepartureDate { get; set; }
 
         [Display(Name = "Статус")]
-        public StatusDto Status { get; set; }
+        public Status Status { get; set; }
     }
 }
